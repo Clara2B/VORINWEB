@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VORINWEB — Sites prontos em 7 dias</title>
+  <meta name="description" content="VORINWEB — Sites modernos, responsivos e entregues em até 7 dias. Escolha um modelo e nós colocamos no ar." />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="brand">
+        <div class="logo">
+          <img src="./imgs/vorninweblogo.png" alt="VORINWEB Logo" style="width: 50px; border-radius: 5px;" />
+        </div>
+        <h1 class="brand-title">VORINWEB</h1>
+      </div>
+
+      <nav class="nav">
+        <a href="#portfolio">Portfólio</a>
+        <a href="#precos">Planos</a>
+        <a href="#contato" class="cta" style="color: #fff;"><span>Peça um orçamento</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <h2>Sites modernos, responsivos e entregues em até <span class="accent">7 dias</span>.</h2>
+        <p class="lead">Na VORINWEB você escolhe um modelo profissional ou personaliza o seu. Nós cuidamos do design, desenvolvimento e publicação — domínio e deploy inclusos quando solicitado.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contato">Quero meu site</a>
+          <a class="btn btn-ghost" href="#portfolio">Ver modelos</a>
+        </div>
+
+        <div class="hero-card reveal">
+          <ul class="specs">
+            <li><strong>Entrega em 7 dias</strong><span class="muted">Processo ágil e documentado</span></li>
+            <li><strong>Design responsivo</strong><span class="muted">Testado em dispositivos</span></li>
+            <li><strong>Deploy incluso</strong><span class="muted">Dominio + publicação (opcional)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="mockup-card reveal">
+          <!-- Coloque imagem de exemplo do template -->
+          <div class="thumb">Preview do modelo</div>
+          <p class="muted small">Modelo: Loja Minimal</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" class="portfolio">
+      <h3>Portfólio</h3>
+      <p class="muted">Modelos prontos que entregamos — escolha, personalizamos e publicamos.</p>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="thumb">Loja Minimal</div>
+          <h4>Loja Minimal</h4>
+          <p class="muted">Landing + catálogo + contato</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="thumb">Agência Clean</div>
+          <h4>Agência Clean</h4>
+          <p class="muted">Portfólio, blog e contato</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="thumb">Portfolio Pessoal</div>
+          <h4>Portfolio Pessoal</h4>
+          <p class="muted">Apresentação profissional</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="thumb">Landing de Produto</div>
+          <h4>Landing de Produto</h4>
+          <p class="muted">Vendas e captura de leads</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PREÇOS -->
+    <section id="precos" class="pricing">
+      <h3>Planos</h3>
+      <div class="pricing-grid">
+        <div class="price reveal">
+          <h4>Plano Básico</h4>
+          <div class="value">R$ 499,90*</div>
+          <ul>
+            <li>Modelo escolhido</li>
+            <li>Até 5 páginas</li>
+            <li>Responsivo</li>
+            <li>Entrega em 7 dias</li>
+          </ul>
+          <a class="btn btn-primary buy" href="#contato">Contratar</a>
+        </div>
+
+        <div class="price reveal">
+          <h4>Plano Personalizado</h4>
+          <div class="value">Sob consulta</div>
+          <ul>
+            <li>Design exclusivo</li>
+            <li>Funcionalidades adicionais</li>
+            <li>SEO básico</li>
+            <li>Suporte inicial</li>
+          </ul>
+          <a class="btn btn-ghost buy" href="#contato">Solicitar proposta</a>
+        </div>
+      </div>
+      <p class="muted small">*Valores negociáveis dependendo do escopo.</p>
+    </section>
+
+    <!-- ABOUT + CONTACT -->
+    <section class="about">
+      <div class="about-grid">
+        <div>
+          <h3>Sobre a VORINWEB</h3>
+          <p class="muted">Somos uma equipe focada em entregar sites rápidos, bonitos e funcionais. Processo transparente, comunicação próxima e entregas no prazo.</p>
+        </div>
+
+        <aside class="contact-card" id="contato">
+          <h4>Peça um orçamento</h4>
+          <form id="contactForm">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" required>
+
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required>
+
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Conte brevemente o site que precisa (modelo, páginas, domínio)"> </textarea>
+
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </form>
+          <p class="muted small">Nós respondemos em até 24h úteis.</p>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container footer">
+    <div class="footer-inner">
+      <p>&copy; <span id="year"></span> VORINWEB. Todos os direitos reservados.</p>
+      <p class="muted">Contato: contato@vorinweb.com.br</p>
+    </div>
+  </footer>
+
+<script src="./script.js"></script>
+</body>
+</html>
