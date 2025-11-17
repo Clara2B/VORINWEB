@@ -182,10 +182,35 @@
     cursor: pointer;
     transition: 0.25s ease;
   }
-  
   .modal-back:hover {
     background: var(--primary);
     color: #fff;
     transform: translateY(-2px);
   }
   
+
+
+.hero-minimal {
+  width: 100%;
+  padding: 48px 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fb 100%);
+  border-bottom: 1px solid #e5e8ef;
+}
+.hero-container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+.hero-minimal h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 12px;
+}
+.hero-minimal p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
