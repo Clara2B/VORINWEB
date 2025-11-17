@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
   <header class="header">
     <div class="container">
       <div class="brand">
@@ -22,8 +24,8 @@
 
       <nav class="nav">
         <a href="#top">Início</a>
-        <a href="#portfolio">Portfólio</a>
         <a href="#precos">Planos</a>
+        <a href="#portifolio">Portifólio</a>
         <a href="#contato" class="cta"><span>Peça um orçamento</span></a>
       </nav>
     </div>
@@ -48,7 +50,6 @@
           </ul>
         </div>
       </div>
-
       <div class="hero-right">
         <img src="./imgs/img hero.png" class="hero-image" />
       </div>
@@ -56,7 +57,7 @@
 
 
     <!-- PORTFÓLIO -->
-    <section id="portfolio" class="portfolio">
+    <section id="portifolio" class="portfolio"> 
       <h3>Portfólio</h3>
       <p class="muted">Modelos prontos que entregamos — escolha, personalizamos e publicamos.</p>
       <div class="grid">
@@ -157,10 +158,53 @@
 </body>
 </html>
 
+
+<!-- WhatsApp Popup -->
+<div class="wpp-popup" id="wppPopup">
+  <div class="wpp-header">
+    <strong>Fale conosco</strong>
+  </div>
+
+  <p class="wpp-text">Olá! 👋<br>
+    Precisa de um orçamento rápido?
+  </p>
+
+  <a href="https://wa.me/5511934900204?text=Olá!%20Quero%20fazer%20um%20site%20com%20vocês.%20Poderia%20me%20passar%20mais%20informações%3F" 
+   target="_blank" 
+   class="wpp-btn">
+   Peça agora
+  </a>
+</div>
+
+<div class="wpp-bubble" id="wppBubble">
+  <img src="./imgs/logoWPP.png" alt="WhatsApp">
+</div>
+
+
 <script>
-  // Atualiza o ano no rodapé automaticamente
+const wppBubble = document.getElementById("wppBubble");
+const wppPopup  = document.getElementById("wppPopup");
+
+// Abre/fecha no clique da bolha
+wppBubble.onclick = () => {
+  wppPopup.classList.toggle("open");
+};
+
+// Fecha ao clicar fora do popup
+document.addEventListener("click", (e) => {
+  const clickedOutside =
+    !wppPopup.contains(e.target) && 
+    !wppBubble.contains(e.target);
+
+  if (clickedOutside) {
+    wppPopup.classList.remove("open");
+  }
+});
+
+
+
+// Atualiza o ano no rodapé
   document.getElementById('year').textContent = new Date().getFullYear();
-  // Manipulação do formulário de contato
   document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
     alert('Obrigado por entrar em contato! Responderemos em breve.');
