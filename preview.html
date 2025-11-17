@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Preview do Modelo | Vorniweb</title>
 
 <style>
   :root {
     --bg: #F3F4F6;
     --deep-blue: #1E3A8A;
+    --deep-blue-hover: #162f6b;
     --card: #FFFFFF;
     --radius: 10px;
     --shadow: 0 3px 12px rgba(30, 58, 138, 0.25);
     --muted: #6B7280;
+
+    /* Botões gerais */
+    --primary: #1E3A8A;
+    --primary-hover: #162f6b;
   }
 
   body {
@@ -21,7 +26,7 @@
     font-family: Inter, sans-serif;
   }
 
-  /* Layout */
+  /* HEADER */
   .preview-header {
     background: var(--card);
     padding: 14px 18px;
@@ -34,6 +39,7 @@
     font-size: 1.05rem;
   }
 
+  /* IFRAME */
   iframe {
     width: 100%;
     height: calc(100vh - 68px);
@@ -41,33 +47,75 @@
     background: white;
   }
 
-  /* Botão flutuante */
-  .choose-btn {
+  /* BOTÕES FLUTUANTES */
+  .choose-btn,
+  .return-btn {
     position: fixed;
     bottom: 24px;
-    right: 24px;
     padding: 14px 22px;
-    background: var(--deep-blue);
+    background: var(--primary);
     color: white;
     font-weight: bold;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     cursor: pointer;
     border: none;
+    text-decoration: none;
     transition: transform 0.2s ease, background 0.2s ease;
     z-index: 20;
   }
 
-  .choose-btn:hover {
-    transform: scale(1.04);
+  .choose-btn:hover,
+  .return-btn:hover {
+    transform: scale(1.06);
+    background: var(--primary-hover);
   }
 
-  /* Fallback */
+  /* Posicionamento */
+  .choose-btn {
+    right: 24px;
+  }
+  .return-btn {
+    left: 24px;
+  }
+
+  /* Fallback se o modelo não existir */
   .error-box {
     text-align: center;
     padding: 40px;
     color: var(--muted);
   }
+
+  /* BOTÕES FLUTUANTES — unificados */
+.action-btn {
+  position: fixed;
+  bottom: 24px;
+  padding: 14px 22px;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 20;
+}
+.action-btn:hover {
+  transform: scale(1.06);
+  background: var(--primary-hover);
+}
+.action-btn.return {
+  left: 24px;
+}
+.action-btn.choose {
+  right: 24px;
+}
 </style>
 </head>
 
@@ -77,45 +125,56 @@
     <strong id="modelName">Carregando modelo...</strong>
   </div>
 
-  <div id="preview-area">
-    <!-- IFRAME ENTRA AQUI VIA JS -->
-  </div>
+  <div id="preview-area"></div>
 
-  <button class="choose-btn" id="chooseBtn">Quero este modelo</button>
+  <!-- Botões flutuantes -->
+  <a href="./index.html#modelos" class="action-btn return">Voltar para modelos</a>
+  <button class="action-btn choose" id="chooseBtn">Quero este modelo</button>
+  
 
-<script>
-  // 1. Pega o parâmetro ?modelo=...
-  const params = new URLSearchParams(window.location.search);
-  const modelo = params.get("modelo");
+  <script>
 
-  const previewArea = document.getElementById("preview-area");
-  const modelName = document.getElementById("modelName");
-
-  if (!modelo) {
-    previewArea.innerHTML = `
-      <div class="error-box">
-        <h2>Modelo não encontrado</h2>
-        <p>Volte e escolha um modelo novamente.</p>
-      </div>`;
-  } else {
-    modelName.textContent = modelo.replaceAll("-", " ");
-
-    // cria o iframe
-    const iframe = document.createElement("iframe");
-    iframe.src = "./modelos/" + modelo + "/index.html";
-
-    iframe.onload = () => console.log("Modelo carregado:", modelo);
-
-    previewArea.appendChild(iframe);
-  }
-
-  // 2. Botão "Quero este"
-  document.getElementById("chooseBtn").addEventListener("click", () => {
-    const numero = "11934900204";
-    const msg = encodeURIComponent("Olá! Gostaria de solicitar o modelo: " + modelo);
-    window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
-  });
-</script>
+    /* 1. Captura o parâmetro da URL (?modelo=...) */
+    const params = new URLSearchParams(window.location.search);
+    const modelo = params.get("modelo");
+  
+    const previewArea = document.getElementById("preview-area");
+    const modelName = document.getElementById("modelName");
+  
+    if (!modelo) {
+      previewArea.innerHTML = `
+        <div class="error-box">
+          <h2>Modelo não encontrado</h2>
+          <p>Volte e escolha um modelo novamente.</p>
+        </div>`;
+    } else {
+      // deixa o nome bonitão
+      const nomeFormatado = modelo.replaceAll("-", " ");
+      modelName.textContent = nomeFormatado;
+  
+      // cria o iframe com o modelo
+      const iframe = document.createElement("iframe");
+      iframe.src = "./modelos/" + modelo + "/index.html";
+  
+      iframe.onload = () => console.log("Modelo carregado:", modelo);
+  
+      previewArea.appendChild(iframe);
+    }
+  
+    /* 2. Botão “Quero este modelo” */
+    document.getElementById("chooseBtn").addEventListener("click", () => {
+      const numero = "11934900204";
+  
+      // nome sem traços e em negrito no WhatsApp
+      const nomeFormatado = modelo.replaceAll("-", " ");
+      const msg = encodeURIComponent(
+        "Olá! Gostaria de solicitar o modelo: *" + nomeFormatado + "*"
+      );
+  
+      window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+    });
+  
+  </script>  
 
 </body>
 </html>
