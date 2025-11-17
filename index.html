@@ -25,7 +25,7 @@
       <nav class="nav">
         <a href="#top">Início</a>
         <a href="#precos">Planos</a>
-        <a href="#portifolio">Portifólio</a>
+        <a href="#modelos">Modelos</a>
         <a href="#contato" class="cta"><span>Peça um orçamento</span></a>
       </nav>
     </div>
@@ -39,7 +39,7 @@
         <p class="lead">Na VORINWEB você escolhe um modelo profissional ou personaliza o seu. Nós cuidamos do design, desenvolvimento e publicação — domínio e deploy inclusos quando solicitado.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#contato">Quero meu site</a>
-          <a class="btn btn-ghost" href="#portfolio">Ver modelos</a>
+          <a class="btn btn-ghost" href="#modelos">Ver modelos</a>
         </div>
 
         <div class="hero-card reveal">
@@ -56,36 +56,57 @@
     </section>
 
 
-    <!-- PORTFÓLIO -->
-    <section id="portifolio" class="portfolio"> 
-      <h3>Portfólio</h3>
-      <p class="muted">Modelos prontos que entregamos — escolha, personalizamos e publicamos.</p>
-      <div class="grid">
-        <article class="card reveal">
-          <div class="thumb">Loja Minimal</div>
-          <h4>Loja Minimal</h4>
-          <p class="muted">Landing + catálogo + contato</p>
-        </article>
+<!-- PORTFÓLIO -->
+<section id="modelos" class="portfolio"> 
+  <h3>Modelos</h3>
+  <p class="muted">Modelos prontos que entregamos — escolha, personalizamos e publicamos.</p>
 
-        <article class="card reveal">
-          <div class="thumb">Agência Clean</div>
-          <h4>Agência Clean</h4>
-          <p class="muted">Portfólio, blog e contato</p>
-        </article>
+  <div class="grid">
 
-        <article class="card reveal">
-          <div class="thumb">Portfolio Pessoal</div>
-          <h4>Portfolio Pessoal</h4>
-          <p class="muted">Apresentação profissional</p>
-        </article>
+    <article class="card reveal">
+      <div class="thumb">Loja Profissional</div>
+      <p class="muted">Landing page + catálogo + contato, sua empresa em um único lugar.</p>
 
-        <article class="card reveal">
-          <div class="thumb">Landing de Produto</div>
-          <h4>Landing de Produto</h4>
-          <p class="muted">Vendas e captura de leads</p>
-        </article>
+      <div class="card-actions">
+        <a href="preview.html?modelo=Loja-Profissional" class="btn-demo">Visualizar demo</a>
+        <a href="#" class="btn-choose">Quero esse</a>
       </div>
-    </section>
+    </article>
+
+    <article class="card reveal">
+      <div class="thumb">Agência Clean</div>
+      <p class="muted">Portfólio + sobre + contato, tudo que precisam saber sobre você.</p>
+
+      <div class="card-actions">
+        <a href="preview.html?modelo=Agência-Clean" class="btn-demo">Visualizar demo</a>
+        <a href="#" class="btn-choose">Quero esse</a>
+      </div>
+    </article>
+
+    <article class="card reveal">
+      <div class="thumb">Portfólio Pessoal</div>
+      <p class="muted">Apresente o seu trabalho de forma profissional e personaliza.</p>
+
+      <div class="card-actions">
+        <a href="preview.html?modelo=Portifólio-Pessoal" class="btn-demo">Visualizar demo</a>
+        <a href="#" class="btn-choose">Quero esse</a>
+      </div>
+    </article>
+
+    <article class="card reveal">
+      <div class="thumb">Landing Page Personalizada</div>
+      <p class="muted">Landing page feita pensando no que <span>VOCÊ</span> precisa</p>
+
+      <div class="card-actions">
+        <a href="preview.html?modelo=Landing-Page-Profissional" class="btn-demo">Visualizar demo</a>
+        <a href="#" class="btn-choose">Quero esse</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
 
     <!-- PREÇOS -->
     <section id="precos" class="pricing">
@@ -155,6 +176,16 @@
   </footer>
 
 <script src="./script.js"></script>
+
+<!-- POPUP MODELOS -->
+<div id="popup-overlay" class="popup-overlay">
+  <div class="popup-box">
+    <h4>Deseja solicitar seu site ou tirar dúvidas sobre o modelo diretamente com a empresa?</h4>
+
+    <button id="popup-confirm" class="popup-btn">Fale conosco</button>
+  </div>
+</div>
+
 </body>
 </html>
 
@@ -177,7 +208,7 @@
 </div>
 
 <div class="wpp-bubble" id="wppBubble">
-  <img src="./imgs/logoWPP.png" alt="WhatsApp">
+  <img src="./imgs/imgWPP.png" alt="WhatsApp">
 </div>
 
 

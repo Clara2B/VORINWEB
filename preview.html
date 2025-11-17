@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview do Modelo | Vorniweb</title>
+
+<style>
+  :root {
+    --bg: #F3F4F6;
+    --deep-blue: #1E3A8A;
+    --card: #FFFFFF;
+    --radius: 10px;
+    --shadow: 0 3px 12px rgba(30, 58, 138, 0.25);
+    --muted: #6B7280;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    font-family: Inter, sans-serif;
+  }
+
+  /* Layout */
+  .preview-header {
+    background: var(--card);
+    padding: 14px 18px;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 10;
+  }
+
+  .preview-header strong {
+    font-size: 1.05rem;
+  }
+
+  iframe {
+    width: 100%;
+    height: calc(100vh - 68px);
+    border: none;
+    background: white;
+  }
+
+  /* Botão flutuante */
+  .choose-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 14px 22px;
+    background: var(--deep-blue);
+    color: white;
+    font-weight: bold;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 20;
+  }
+
+  .choose-btn:hover {
+    transform: scale(1.04);
+  }
+
+  /* Fallback */
+  .error-box {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="preview-header">
+    <strong id="modelName">Carregando modelo...</strong>
+  </div>
+
+  <div id="preview-area">
+    <!-- IFRAME ENTRA AQUI VIA JS -->
+  </div>
+
+  <button class="choose-btn" id="chooseBtn">Quero este modelo</button>
+
+<script>
+  // 1. Pega o parâmetro ?modelo=...
+  const params = new URLSearchParams(window.location.search);
+  const modelo = params.get("modelo");
+
+  const previewArea = document.getElementById("preview-area");
+  const modelName = document.getElementById("modelName");
+
+  if (!modelo) {
+    previewArea.innerHTML = `
+      <div class="error-box">
+        <h2>Modelo não encontrado</h2>
+        <p>Volte e escolha um modelo novamente.</p>
+      </div>`;
+  } else {
+    modelName.textContent = modelo.replaceAll("-", " ");
+
+    // cria o iframe
+    const iframe = document.createElement("iframe");
+    iframe.src = "./modelos/" + modelo + "/index.html";
+
+    iframe.onload = () => console.log("Modelo carregado:", modelo);
+
+    previewArea.appendChild(iframe);
+  }
+
+  // 2. Botão "Quero este"
+  document.getElementById("chooseBtn").addEventListener("click", () => {
+    const numero = "11934900204";
+    const msg = encodeURIComponent("Olá! Gostaria de solicitar o modelo: " + modelo);
+    window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+  });
+</script>
+
+</body>
+</html>

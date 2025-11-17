@@ -76,4 +76,31 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+const popup = document.getElementById("popup-overlay");
+const popupBtn = document.getElementById("popup-confirm");
+
+// abre popup
+document.querySelectorAll(".btn-choose").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    popup.classList.add("active");
+  });
+});
+
+// botão fale conosco
+popupBtn.addEventListener("click", () => {
+  const numero = "11934900204";
+  const msg = encodeURIComponent("Olá! Gostaria de saber mais sobre este modelo de site.");
+  window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+});
+
+// fechar clicando FORA do popup-box
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.classList.remove("active");
+  }
+});
+
+
 });

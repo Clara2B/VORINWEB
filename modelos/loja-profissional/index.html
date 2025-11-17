@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loja Profissional — Demo | Vorniweb</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- DEMO RIBBON -->
+  <div class="demo-ribbon">DEMO</div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo-square" aria-hidden="true"></div>
+        <span class="brand-name">SUA LOJA AQUI <small class="brand-sub">Loja - Demo</small></span>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+        <ul class="nav-list" id="navList">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#catalog">Catálogo</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Loja profissional pronta para alavancar vendas</h1>
+        <p class="lead">Demo funcional de landing + catálogo + contato. Projeto minimalista, responsivo e otimizado para conversão.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#catalog">Ver catálogo</a>
+          <a class="btn btn-ghost" href="#contact">Contato</a>
+        </div>
+
+        <ul class="hero-features">
+          <li>📦 Catálogo organizado</li>
+          <li>⚡ Performance otimizada</li>
+          <li>🔒 Pagamento integrado</li>
+        </ul>
+      </div>
+
+      <div class="hero-preview" aria-hidden="true">
+        <!-- placeholder device mockup -->
+        <div class="device">
+          <div class="device-screen">
+            <svg viewBox="0 0 400 300" class="placeholder-illustration" aria-hidden="true">
+              <rect x="12" y="12" rx="8" ry="8" width="376" height="276" fill="none" stroke="#e6eefc" stroke-width="2"/>
+              <rect x="28" y="36" rx="6" ry="6" width="150" height="90" fill="#f6fbff" stroke="#dfeffb"/>
+              <rect x="190" y="36" rx="6" ry="6" width="170" height="90" fill="#eef6ff" stroke="#dfeffb"/>
+              <rect x="28" y="140" rx="6" ry="6" width="332" height="120" fill="#ffffff" stroke="#eef6fb"/>
+            </svg>
+          </div>
+          <div class="device-foot">Preview - Demo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section id="catalog" class="catalog container">
+    <h2>Catálogo</h2>
+    <p class="muted">Produtos fictícios usados para demonstrar layout e interações.</p>
+
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true">
+          <div class="img-placeholder">Imagem</div>
+        </div>
+        <h3 class="product-title">Tênis Runner X</h3>
+        <p class="product-price">R$ 249,00</p>
+        <p class="product-desc muted small">Tênis de corrida com amortecimento e design moderno.</p>
+
+        <div class="product-actions">
+          <button class="btn btn-outline btn-quick" data-name="Tênis Runner X" data-price="R$ 249,00">Visualizar demo</button>
+          <button class="btn btn-primary btn-buy" data-name="Tênis Runner X">Quero este</button>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true">
+          <div class="img-placeholder">Imagem</div>
+        </div>
+        <h3 class="product-title">Mochila Urban</h3>
+        <p class="product-price">R$ 179,00</p>
+        <p class="product-desc muted small">Mochila resistente com compartimento para notebook.</p>
+
+        <div class="product-actions">
+          <button class="btn btn-outline btn-quick" data-name="Mochila Urban" data-price="R$ 179,00">Visualizar demo</button>
+          <button class="btn btn-primary btn-buy" data-name="Mochila Urban">Quero este</button>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true">
+          <div class="img-placeholder">Imagem</div>
+        </div>
+        <h3 class="product-title">Relógio Neo</h3>
+        <p class="product-price">R$ 319,00</p>
+        <p class="product-desc muted small">Relógio inteligente com monitor de atividades.</p>
+
+        <div class="product-actions">
+          <button class="btn btn-outline btn-quick" data-name="Relógio Neo" data-price="R$ 319,00">Visualizar demo</button>
+          <button class="btn btn-primary btn-buy" data-name="Relógio Neo">Quero este</button>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true">
+          <div class="img-placeholder">Imagem</div>
+        </div>
+        <h3 class="product-title">Fone Studio</h3>
+        <p class="product-price">R$ 129,00</p>
+        <p class="product-desc muted small">Fone com cancelamento e som de alta fidelidade.</p>
+
+        <div class="product-actions">
+          <button class="btn btn-outline btn-quick" data-name="Fone Studio" data-price="R$ 129,00">Visualizar demo</button>
+          <button class="btn btn-primary btn-buy" data-name="Fone Studio">Quero este</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact container">
+    <h2>Contato</h2>
+    <p class="muted">Se quiser testar a integração real: fale conosco via WhatsApp.</p>
+
+    <form class="contact-form" id="contactForm" onsubmit="return false;">
+      <div class="form-row">
+        <label for="name">Nome</label>
+        <input id="name" name="name" placeholder="Seu nome" required>
+      </div>
+
+      <div class="form-row">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" placeholder="seu@exemplo.com">
+      </div>
+
+      <div class="form-row">
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" rows="5" placeholder="Como podemos ajudar?"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" id="contactSend">Enviar (simulado)</button>
+        <a class="btn btn-ghost" href="https://wa.me/5511934900204?text=Olá!%20Quero%20saber%20sobre%20a%20Loja%20Profissional%20(demo)." target="_blank">Fale no WhatsApp</a>
+      </div>
+    </form>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="muted small">Este é um modelo <strong>DEMO</strong> da Vorniweb — elementos e produtos fictícios.</p>
+    </div>
+  </footer>
+
+  <!-- PRODUCT QUICKVIEW / CONFIRM POPUP (re-usable modal) -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" id="modal">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+      <div class="modal-body" id="modalBody">
+        <!-- content injected by JS -->
+      </div>
+      <div class="modal-actions">
+        <a href="#" id="modalBuy" class="btn btn-primary">Quero este</a>
+        <button id="modalCancel" class="btn btn-ghost">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+  /* NAV TOGGLE */
+  const navToggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => navList.classList.toggle('open'));
+  }
+
+  /* QUICKVIEW: Visualizar demo */
+  const overlay = document.getElementById('overlay');
+  const modal = document.getElementById('modal');
+  const modalBody = document.getElementById('modalBody');
+  const modalClose = document.getElementById('modalClose');
+  const modalBuy = document.getElementById('modalBuy');
+  const modalCancel = document.getElementById('modalCancel');
+
+  document.querySelectorAll('.btn-quick').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const name = btn.dataset.name;
+      const price = btn.dataset.price;
+
+      modalBody.innerHTML = `
+        <div class="quickview">
+          <div class="quick-img" aria-hidden="true"></div>
+          <div class="quick-info">
+            <h3>${name} <span class="muted small">${price}</span></h3>
+            <p class="muted small">Visualização interativa deste produto — comportamento de demo.</p>
+          </div>
+        </div>
+      `;
+
+      modalBuy.href = `https://wa.me/5511934900204?text=${encodeURIComponent("Olá! Quero solicitar o produto: " + name)}`;
+
+      overlay.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  function closeModal() {
+    overlay.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modalCancel.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  /* BUY: Quero este */
+  document.querySelectorAll('.btn-buy').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const name = btn.dataset.name;
+
+      modalBody.innerHTML = `
+        <h3>Deseja solicitar seu site ou tirar dúvidas sobre este modelo?</h3>
+        <p class="muted small">Modelo: <strong>${name}</strong></p>
+      `;
+
+      modalBuy.href = `https://wa.me/5511934900204?text=${encodeURIComponent("Olá! Gostaria de falar sobre o modelo: " + name)}`;
+
+      overlay.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  /* CONTACT (DEMO) */
+  const contactSend = document.getElementById('contactSend');
+  if (contactSend) {
+    contactSend.addEventListener('click', () => {
+      alert('Formulário (demo) enviado — aqui você integraria um backend ou serviço de e-mail.');
+    });
+  }
+
+  /* ESC KEY */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
