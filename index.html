@@ -21,14 +21,15 @@
       </div>
 
       <nav class="nav">
+        <a href="#top">Início</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#precos">Planos</a>
-        <a href="#contato" class="cta" style="color: #fff;"><span>Peça um orçamento</span></a>
+        <a href="#contato" class="cta"><span>Peça um orçamento</span></a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="top">
     <!-- HERO -->
     <section class="hero" id="home">
       <div class="hero-left">
@@ -41,21 +42,18 @@
 
         <div class="hero-card reveal">
           <ul class="specs">
-            <li><strong>Entrega em 7 dias</strong><span class="muted">Processo ágil e documentado</span></li>
-            <li><strong>Design responsivo</strong><span class="muted">Testado em dispositivos</span></li>
-            <li><strong>Deploy incluso</strong><span class="muted">Dominio + publicação (opcional)</span></li>
+            <li><strong>Entrega em 7 dias</strong><span class="muted"> Processo ágil e documentado</span></li>
+            <li><strong>Design responsivo</strong><span class="muted"> Testado em dispositivos</span></li>
+            <li><strong>Deploy incluso</strong><span class="muted"> Dominio + publicação (opcional)</span></li>
           </ul>
         </div>
       </div>
 
-      <aside class="hero-right">
-        <div class="mockup-card reveal">
-          <!-- Coloque imagem de exemplo do template -->
-          <div class="thumb">Preview do modelo</div>
-          <p class="muted small">Modelo: Loja Minimal</p>
-        </div>
-      </aside>
+      <div class="hero-right">
+        <img src="./imgs/img hero.png" class="hero-image" />
+      </div>
     </section>
+
 
     <!-- PORTFÓLIO -->
     <section id="portfolio" class="portfolio">
@@ -158,3 +156,14 @@
 <script src="./script.js"></script>
 </body>
 </html>
+
+<script>
+  // Atualiza o ano no rodapé automaticamente
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Manipulação do formulário de contato
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Obrigado por entrar em contato! Responderemos em breve.');
+    this.reset();
+  });
+</script>
