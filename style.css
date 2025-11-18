@@ -1,11 +1,12 @@
 :root {
+  --span: #2563EB;
   --bg: #F3F4F6;
   --bg-header: #ecf0f3b7;
   --deep-blue: #1E3A8A;
   --accent: #9CA3AF;
   --card: #FFFFFF;
   --radius: 12px;
-  --shadow: 0 3px 12px rgba(32, 67, 162, 0.461); 
+  --shadow: 0 3px 12px #2043a276; 
   --muted: #6B7280;
   --accent-strong: #068fd4;
   --width: 100%;
@@ -424,7 +425,6 @@ body {
 /* Portfolio */
 .portfolio { 
   font-family: var(--font-family);
-  padding: 48px 0; 
 }
 .portfolio h3 {
   color: var(--deep-blue);
@@ -576,7 +576,7 @@ body {
 
 
 
-/* Pricing */
+/* PREÇOS */
 .pricing {
   font-family: var(--font-family);
   padding: 28px 0; 

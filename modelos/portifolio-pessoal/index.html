@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifólio Profissional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- HERO -->
+    <header class="hero">
+        <h1>Meu portifólio</h1>
+        <p>Soluções modernas para destacar sua marca no mundo digital.</p>
+        <button id="btnPortifolio">Ver Portfólio</button>
+    </header>
+
+    <div class="demo-bar">DEMO</div>
+    
+    <!-- SOBRE -->
+    <section class="sobre" id="sobre">
+        <div class="texto-container">
+            <h2>Sobre Nós</h2>
+            <p>
+                Somos uma agência especializada em criar presença digital autêntica e estratégica.
+                Do design ao marketing, entregamos experiências que realmente conectam sua marca ao público.
+            </p>
+        </div>
+
+    <div class="imgsobre">
+        <img class="sobre-foto" src="./img-exemplo.png" alt="Logo da Empresa ou Marca">
+    </div>
+</section>
+    <!-- PORTFÓLIO -->
+    <section class="portfolio" id="portfolio">
+        <h2>Portfólio</h2>
+        <div class="portfolio-grid">
+            <div class="item">Projeto 01</div>
+            <div class="item">Projeto 02</div>
+            <div class="item">Projeto 03</div>
+            <div class="item">Projeto 04</div>
+            <div class="item">Projeto 05</div>
+            <div class="item">Projeto 06</div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+        <h2>Contato</h2>
+        <form id="formContato">
+            <label>Nome:</label>
+            <input type="text" name="nome" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <label>Mensagem:</label>
+            <textarea name="mensagem" required></textarea>
+
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>   
+
+    <script>
+        // Scroll suave para o portfólio
+document.getElementById("btnPortifolio").addEventListener("click", () => {
+    document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
+});
+
+// Formulário de contato
+document.getElementById("formContato").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const nome = e.target.nome.value;
+    const email = e.target.email.value;
+
+    alert(`Obrigado, ${nome}! Entraremos em contato pelo email: ${email}.`);
+
+    e.target.reset();
+});
+    </script>
+</body>
+</html>

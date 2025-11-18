@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto Premium – Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>A solução que transforma <span>resultados reais</span></h1>
+            <p>
+                Um produto criado para quem não aceita menos do que performance, qualidade
+                e impacto imediato. Você está a um passo de elevar seu nível.
+            </p>
+            <button id="btn-cta" class="btn-primary">Quero Garantir o Meu</button>
+        </div>
+
+        <div class="placeholder-premium">
+            <span>Seu produto aqui</span>
+        </div>
+    </header>
+
+    <div class="demo-bar">DEMO</div>
+
+    <!-- BENEFICIOS -->
+    <section class="beneficios">
+        <h2>Por que este produto é diferente?</h2>
+
+        <div class="beneficios-grid">
+            <div class="card">
+                <h3>✔ Resultados Comprovados</h3>
+                <p>Clientes relatam mudanças já nos primeiros dias de uso.</p>
+            </div>
+
+            <div class="card">
+                <h3>✔ Desenhado por Especialistas</h3>
+                <p>Desenvolvido após anos de pesquisa e testes reais.</p>
+            </div>
+
+            <div class="card">
+                <h3>✔ Rápido, Fácil e Eficiente</h3>
+                <p>A tecnologia trabalha por você enquanto foca no que importa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DO PRODUTO -->
+    <section class="produto">
+        <div class="produto-info">
+            <h2>Conheça o produto mais completo do mercado</h2>
+            <p>
+                Criamos uma solução que elimina dificuldades, aumenta sua performance
+                e acelera resultados. Não é exagero — é engenharia aplicada ao seu sucesso.
+            </p>
+
+            <ul>
+                <li>📌 Recursos Premium e atualizações constantes</li>
+                <li>📌 Interface intuitiva e moderna</li>
+                <li>📌 Suporte dedicado</li>
+            </ul>
+
+            <button id="btn-cta-2" class="btn-primary">Comprar Agora</button>
+        </div>
+
+        <div class="placeholder-produto">
+            <span>Seu produto aqui</span>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL -->
+    <section class="depoimentos">
+        <h2>Exemplos de avaliação</h2>
+
+        <div class="depoimentos-grid">
+            <div class="dep-card">
+                <p>“Simplesmente mudou minha forma de trabalhar. Vale cada centavo.”</p>
+                <span>— Carla, Empreendedora</span>
+            </div>
+
+            <div class="dep-card">
+                <p>“Produto premium mesmo. Resultado rápido e suporte impecável.”</p>
+                <span>— Roberto, Gestor</span>
+            </div>
+
+            <div class="dep-card">
+                <p>“Investi e me surpreendi. Já indiquei para três amigos.”</p>
+                <span>— Fabiana, Autônoma</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <h2>Pronto para dar o próximo passo?</h2>
+        <p>Seu novo nível começa agora.</p>
+        <button id="btn-cta-3" class="btn-primary">Garantir Agora</button>
+    </section>
+
+    <!-- JS -->
+    <script>
+        const numero = "11934900204";
+        const produto = "Produto Premium de Alta Conversão";
+
+        function enviarWpp() {
+            const texto = encodeURIComponent(`Olá! Quero adquirir o **${produto}**.`);
+            window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+        }
+
+        document.getElementById("btn-cta").addEventListener("click", enviarWpp);
+        document.getElementById("btn-cta-2").addEventListener("click", enviarWpp);
+        document.getElementById("btn-cta-3").addEventListener("click", enviarWpp);
+    </script>
+
+</body>
+</html>

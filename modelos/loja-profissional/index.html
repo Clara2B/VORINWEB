@@ -30,6 +30,8 @@
       </nav>
     </div>
   </header>
+  
+  <div class="demo-bar">DEMO</div>
 
   <!-- HERO -->
   <section id="home" class="hero">
@@ -50,16 +52,16 @@
         </ul>
       </div>
 
-<section class="hero-minimal">
-  <div class="hero-container">
-    <h1>Visualização do Modelo</h1>
-    <p>Explore a demonstração abaixo. Esta é apenas uma <strong>prévia interativa</strong> do modelo selecionado.</p>
-  </div>
-</section>
+    <section class="hero-minimal">
+        <div class="hero-container">
+            <h1>Visualização do Modelo</h1>
+            <p>Explore a demonstração abaixo. Esta é apenas uma <strong>prévia interativa</strong> do modelo selecionado.</p>
+        </div>
+    </section>
 
 
   <!-- CATALOG -->
-  <section id="catalog" class="catalog container">
+<section id="catalog" class="catalog container">
     <h2>Catálogo</h2>
     <p class="muted">Produtos fictícios usados para demonstrar layout e interações.</p>
 
@@ -124,43 +126,9 @@
         </div>
       </article>
     </div>
-  </section>
+</section>
+ 
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact container">
-    <h2>Contato</h2>
-    <p class="muted">Se quiser testar a integração real: fale conosco via WhatsApp.</p>
-
-    <form class="contact-form" id="contactForm" onsubmit="return false;">
-      <div class="form-row">
-        <label for="name">Nome</label>
-        <input id="name" name="name" placeholder="Seu nome" required>
-      </div>
-
-      <div class="form-row">
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="email" placeholder="seu@exemplo.com">
-      </div>
-
-      <div class="form-row">
-        <label for="message">Mensagem</label>
-        <textarea id="message" name="message" rows="5" placeholder="Como podemos ajudar?"></textarea>
-      </div>
-
-      <div class="form-actions">
-        <button class="btn btn-primary" id="contactSend">Enviar (simulado)</button>
-        <a class="btn btn-ghost" href="https://wa.me/5511934900204?text=Olá!%20Quero%20saber%20sobre%20a%20Loja%20Profissional%20(demo)." target="_blank">Fale no WhatsApp</a>
-      </div>
-    </form>
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <p class="muted small">Este é um modelo <strong>DEMO</strong> da Vorniweb — elementos e produtos fictícios.</p>
-    </div>
-  </footer>
 
   <!-- PRODUCT QUICKVIEW / CONFIRM POPUP (re-usable modal) -->
   <div class="overlay" id="overlay" aria-hidden="true">
@@ -177,91 +145,90 @@
   </div>
 
 
-
-  <script>
-  /* NAV TOGGLE */
-  const navToggle = document.getElementById('navToggle');
-  const navList = document.getElementById('navList');
-  if (navToggle) {
-    navToggle.addEventListener('click', () => navList.classList.toggle('open'));
-  }
-
-  /* QUICKVIEW: Visualizar demo */
-  const overlay = document.getElementById('overlay');
-  const modal = document.getElementById('modal');
-  const modalBody = document.getElementById('modalBody');
-  const modalClose = document.getElementById('modalClose');
-  const modalBuy = document.getElementById('modalBuy');
-  const modalCancel = document.getElementById('modalCancel');
-
-  document.querySelectorAll('.btn-quick').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const name = btn.dataset.name;
-      const price = btn.dataset.price;
-
-      modalBody.innerHTML = `
-        <div class="quickview">
-          <div class="quick-img" aria-hidden="true"></div>
-          <div class="quick-info">
-            <h3>${name} <span class="muted small">${price}</span></h3>
-            <p class="muted small">Visualização interativa deste produto — comportamento de demo.</p>
-          </div>
-        </div>
-      `;
-
-      modalBuy.href = `https://wa.me/5511934900204?text=${encodeURIComponent("Olá! Quero solicitar o produto: " + name)}`;
-
-      overlay.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-    });
-  });
-
-  function closeModal() {
-    overlay.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-  }
-
-  modalClose.addEventListener('click', closeModal);
-  modalCancel.addEventListener('click', closeModal);
-
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal();
-  });
-
-  /* BUY: Quero este */
-  document.querySelectorAll('.btn-buy').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const name = btn.dataset.name;
-
-      modalBody.innerHTML = `
-        <h3>Deseja solicitar seu site ou tirar dúvidas sobre este modelo?</h3>
-        <p class="muted small">Modelo: <strong>${name}</strong></p>
-      `;
-
-      modalBuy.href = `https://wa.me/5511934900204?text=${encodeURIComponent("Olá! Gostaria de falar sobre o modelo: " + name)}`;
-
-      overlay.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-    });
-  });
-
-  /* CONTACT (DEMO) */
-  const contactSend = document.getElementById('contactSend');
-  if (contactSend) {
-    contactSend.addEventListener('click', () => {
-      alert('Formulário (demo) enviado — aqui você integraria um backend ou serviço de e-mail.');
-    });
-  }
-
-  /* ESC KEY */
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-</script>
-
 </body>
 </html>
+
+<script>
+    /* NAV TOGGLE */
+    const navToggle = document.getElementById('navToggle');
+    const navList = document.getElementById('navList');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => navList.classList.toggle('open'));
+    }
+  
+    /* QUICKVIEW: Visualizar demo */
+    const overlay = document.getElementById('overlay');
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+    const modalBuy = document.getElementById('modalBuy');
+    const modalCancel = document.getElementById('modalCancel');
+  
+    document.querySelectorAll('.btn-quick').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+  
+        const name = btn.dataset.name;
+        const price = btn.dataset.price;
+  
+        modalBody.innerHTML = `
+          <div class="quickview">
+            <div class="quick-img" aria-hidden="true"></div>
+            <div class="quick-info">
+              <h3>${name} <span class="muted small">${price}</span></h3>
+              <p class="muted small">Visualização interativa deste produto — comportamento de demo.</p>
+            </div>
+          </div>
+        `;
+  
+        modalBuy.href = `https://wa.me/5511934900204?text=${encodeURIComponent("Olá! Quero solicitar o produto: " + name)}`;
+  
+        overlay.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+  
+    function closeModal() {
+      overlay.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  
+    modalClose.addEventListener('click', closeModal);
+    modalCancel.addEventListener('click', closeModal);
+  
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal();
+    });
+  
+    /* BUY: Quero este */
+    document.querySelectorAll('.btn-buy').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+  
+        const name = btn.dataset.name;
+  
+        modalBody.innerHTML = `
+          <h3>Deseja solicitar seu site ou tirar dúvidas sobre este modelo?</h3>
+          <p class="muted small">Modelo: <strong>${name}</strong></p>
+        `;
+  
+        modalBuy.href = `https://wa.me/5511934900204?text=${encodeURIComponent("Olá! Gostaria de falar sobre o modelo: " + name)}`;
+  
+        overlay.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+  
+    /* CONTACT (DEMO) */
+    const contactSend = document.getElementById('contactSend');
+    if (contactSend) {
+      contactSend.addEventListener('click', () => {
+        alert('Formulário (demo) enviado — aqui você integraria um backend ou serviço de e-mail.');
+      });
+    }
+  
+    /* ESC KEY */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
