@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VBOT - O bot da dua empresa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="whatsapp-demo">
+  <div class="demo-header">
+    <div class="avatar">
+      <img src="./VORNINbot.png" alt="VorninWeb Bot">
+    </div>
+
+    <div>
+      <h3 class="demo-title">Assistente Virtual</h3>
+      <p class="demo-status">online agora</p>
+    </div>
+  </div>
+
+  <div class="demo-chat" id="demoChat">
+    <div class="msg bot">Olá! 👋 Sou o Assistente Virtual da Vorinweb.<br>Como posso ajudar hoje?</div>
+  </div>
+
+  <div class="demo-actions">
+    <button class="demo-btn" data-msg="Quais serviços vocês oferecem?">Serviços</button>
+    <button class="demo-btn" data-msg="Quero saber valores">Valores</button>
+    <button class="demo-btn" data-msg="Falar com atendente">Atendente</button>
+  </div>
+
+   <a 
+    href="https://wa.me/5511934900204" 
+    class="real-whatsapp-btn" 
+    target="_blank">
+      Testar bot real no WhatsApp
+  </a>
+  
+</div>   
+</body>
+
+<script>
+const chat = document.getElementById("demoChat");
+const buttons = document.querySelectorAll(".demo-btn");
+
+function addMessage(text, sender) {
+  const msg = document.createElement("div");
+  msg.classList.add("msg", sender);
+  msg.textContent = text;
+
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const userMsg = btn.dataset.msg;
+    addMessage(userMsg, "user");
+
+    setTimeout(() => {
+      if (userMsg.includes("serviços")) {
+        addMessage("Oferecemos sites profissionais, bots de WhatsApp e consultoria digital 🔧✨", "bot");
+      } else if (userMsg.includes("valores")) {
+        addMessage("Nossos planos variam de acordo com o projeto. Quer receber uma proposta personalizada?", "bot");
+      } else {
+        addMessage("Claro! Já te conecto com um atendente humano 👤❤️", "bot");
+      }
+    }, 700);
+  });
+});
+</script>
