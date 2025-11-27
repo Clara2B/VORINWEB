@@ -179,7 +179,7 @@
 
     <div class="footer-right">
       <a href="#home">Home</a>
-      <a href="#catalog">Catálogo</a>
+      <a href="#services">Serviços</a>
       <a href="#contact">Contato</a>
     </div>
   </div>
@@ -188,3 +188,12 @@
 </footer>
 </body>
 </html>
+
+<script>
+    const navToggle = document.getElementById('navToggle');
+    const navList = document.getElementById('navList');
+
+    navToggle.addEventListener('click', function() {
+        navList.classList.toggle('open');
+    });
+</script>

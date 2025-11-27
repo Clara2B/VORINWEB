@@ -430,19 +430,66 @@ h1, h2, h3 {
 }
 
 
-
-
-/*RESPONSIVIDADE GERAL*/
-@media (max-width: 768px) {
-  .hero {
-    padding-top: 140px;
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 30px; 
   }
-
-  .hero p {
-    font-size: 1rem;
+  .about-grid {
+    gap: 50px; 
+    grid-template-columns: 1fr 1.1fr; 
   }
-
-  .value-card, .service-card {
-    padding: 24px;
+  .services-grid {
+    gap: 24px;
   }
 }
+@media (max-width: 768px) {
+  .site-header {
+    padding: 14px 0;
+  }
+  .header-inner {
+    padding: 0 15px; 
+  }
+  .hero {
+    padding: 40px 15px 70px;
+  }
+  .hero p {
+    font-size: 1rem;
+    margin: 15px auto 30px auto;
+  }
+  .hero-ctas {
+    gap: 12px; 
+  }
+  .btn {
+    padding: 12px 24px;
+  }
+  .section {
+    padding: 60px 0;
+  }
+  .about-grid {
+    grid-template-columns: 1fr; 
+    gap: 40px;
+  }
+  .about-text {
+    text-align: center;
+  }
+  .about-list {
+    margin-top: 20px;
+  }
+  .about-image {
+    height: 300px; 
+    order: -1; 
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr; /* Coluna única */
+    gap: 20px;
+  }
+  .contact-grid {
+    flex-direction: column; /* Empilha os elementos */
+    align-items: center;
+    padding: 24px;
+    text-align: center;
+  }
+}
+
+

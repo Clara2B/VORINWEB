@@ -1,13 +1,15 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>VORINWEB — Sites prontos em 7 dias</title>
+
     <meta
       name="description"
       content="VORINWEB — Sites modernos, responsivos e entregues em até 7 dias. Escolha um modelo e nós colocamos no ar."
     />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,31 +18,51 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <header class="header">
       <div class="container">
+        <!-- BRAND (Esquerda) -->
         <div class="brand">
           <div class="logo">
             <img
               src="./imgs/vorninweblogo.png"
-              alt="VORINWEB Logo"
+              alt="Logotipo da VORINWEB"
               style="width: 50px; border-radius: 5px"
             />
           </div>
           <h1 class="brand-title">VORINWEB</h1>
         </div>
 
+        <!-- NAV LINKS (Central) -->
         <nav class="nav">
-          <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
-            ☰
-          </button>
           <a href="#top">Início</a>
           <a href="#modelos">Modelos</a>
           <a href="#precos">Planos</a>
-          <a href="#contato" class="cta"><span>Peça um orçamento</span></a>
+          <a href="#contato">Contato</a>
         </nav>
+
+        <!-- CTA + THEME BUTTON (Direita) -->
+        <div class="nav-right">
+          <a href="#contato" class="cta"><span>Peça um orçamento</span></a>
+
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Alternar tema"
+          >
+            🌙
+          </button>
+        </div>
+
+        <!-- MOBILE HAMBURGER -->
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+          ☰
+        </button>
       </div>
     </header>
+
+    <!-- MENU MOBILE -->
     <div id="mobileMenu" class="mobile-menu">
       <a href="#top">Início</a>
       <a href="#modelos">Modelos</a>
@@ -48,6 +70,7 @@
       <a href="#contato" class="cta">Peça um orçamento</a>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="scale-wrapper">
       <main class="container" id="top">
         <!-- HERO -->
@@ -57,11 +80,13 @@
               Sites modernos, responsivos e entregues em até
               <span class="accent">7 dias</span>.
             </h2>
+
             <p class="lead">
               Na VORINWEB você escolhe um modelo profissional ou personaliza o
               seu. Nós cuidamos do design, desenvolvimento e publicação —
               domínio e deploy inclusos quando solicitado.
             </p>
+
             <div class="actions">
               <a class="btn btn-primary" href="#contato">Quero meu site</a>
               <a class="btn btn-ghost" href="#modelos">Ver modelos</a>
@@ -70,22 +95,27 @@
             <div class="hero-card reveal">
               <ul class="specs">
                 <li>
-                  <strong>Entrega em 7 dias</strong
-                  ><span class="muted"> Processo ágil e documentado</span>
+                  <strong>Entrega em 7 dias</strong>
+                  <span class="muted">Processo ágil e documentado</span>
                 </li>
                 <li>
-                  <strong>Design responsivo</strong
-                  ><span class="muted"> Testado em dispositivos</span>
+                  <strong>Design responsivo</strong>
+                  <span class="muted">Testado em dispositivos</span>
                 </li>
                 <li>
-                  <strong>Deploy incluso</strong
-                  ><span class="muted"> Dominio + publicação (opcional)</span>
+                  <strong>Deploy incluso</strong>
+                  <span class="muted">Domínio + publicação (opcional)</span>
                 </li>
               </ul>
             </div>
           </div>
+
           <div class="hero-right">
-            <img src="./imgs/img hero.png" class="hero-image" />
+            <img
+              src="./imgs/img hero.png"
+              class="hero-image"
+              alt="Ilustração hero"
+            />
           </div>
         </section>
 
@@ -104,11 +134,13 @@
                 Landing page + catálogo + contato, sua empresa em um único
                 lugar.
               </p>
-
               <div class="card-actions">
-                <a href="preview.html?modelo=Loja-Profissional" class="btn-demo"
-                  >Visualizar demo</a
+                <a
+                  href="preview.html?modelo=Loja-Profissional"
+                  class="btn-demo"
                 >
+                  Visualizar demo
+                </a>
                 <a href="#" class="btn-choose">Quero esse</a>
               </div>
             </article>
@@ -116,15 +148,15 @@
             <article class="card reveal">
               <div class="thumb">Portfólio Pessoal</div>
               <p class="muted">
-                Apresente o seu trabalho de forma profissional e personaliza.
+                Apresente o seu trabalho de forma profissional e personalizada.
               </p>
-
               <div class="card-actions">
                 <a
                   href="preview.html?modelo=Portifolio-Pessoal"
                   class="btn-demo"
-                  >Visualizar demo</a
                 >
+                  Visualizar demo
+                </a>
                 <a href="#" class="btn-choose">Quero esse</a>
               </div>
             </article>
@@ -132,13 +164,12 @@
             <article class="card reveal">
               <div class="thumb">Bot WhatsApp</div>
               <p class="muted">
-                Seus clientes atendidos na hora e de forma profissional
+                Seus clientes atendidos na hora e de forma profissional.
               </p>
-
               <div class="card-actions">
-                <a href="preview.html?modelo=Bot-Whatsapp" class="btn-demo"
-                  >Visualizar demo</a
-                >
+                <a href="preview.html?modelo=Bot-Whatsapp" class="btn-demo">
+                  Visualizar demo
+                </a>
                 <a href="#" class="btn-choose">Quero esse</a>
               </div>
             </article>
@@ -146,27 +177,29 @@
             <article class="card reveal">
               <div class="thumb">Landing Page - <span>VENDAS</span></div>
               <p class="muted">
-                Landing page feita para impulsionar suas vendas
+                Landing page feita para impulsionar suas vendas.
               </p>
-
               <div class="card-actions">
-                <a href="preview.html?modelo=Landing-Conversao" class="btn-demo"
-                  >Visualizar demo</a
+                <a
+                  href="preview.html?modelo=Landing-Conversao"
+                  class="btn-demo"
                 >
+                  Visualizar demo
+                </a>
                 <a href="#" class="btn-choose">Quero esse</a>
               </div>
             </article>
 
             <article class="card reveal">
-              <div class="thumb">Landing Page - <span>EMPRESAS</span></div>
-              <p class="muted">Landing page feita para divulgar sua empresa</p>
-
+              <div class="thumb">Landing Page - <span>EMPRESA</span></div>
+              <p class="muted">Landing page feita para divulgar sua empresa.</p>
               <div class="card-actions">
                 <a
                   href="preview.html?modelo=Landing-Profissional"
                   class="btn-demo"
-                  >Visualizar demo</a
                 >
+                  Visualizar demo
+                </a>
                 <a href="#" class="btn-choose">Quero esse</a>
               </div>
             </article>
@@ -174,22 +207,22 @@
             <article class="card reveal">
               <div class="thumb">Landing Page - <span>PESSOAL</span></div>
               <p class="muted">
-                Landing page feita para impulsionar seu serviço
+                Landing page feita para impulsionar seu serviço.
               </p>
-
               <div class="card-actions">
-                <a href="preview.html?modelo=Landing-pessoal" class="btn-demo"
-                  >Visualizar demo</a
-                >
+                <a href="preview.html?modelo=Landing-pessoal" class="btn-demo">
+                  Visualizar demo
+                </a>
                 <a href="#" class="btn-choose">Quero esse</a>
               </div>
             </article>
           </div>
         </section>
 
-        <!-- PREÇOS -->
+        <!-- PLANOS -->
         <section id="precos" class="pricing">
           <h3>Planos</h3>
+
           <div class="pricing-grid">
             <div class="price reveal">
               <h4>Plano Básico</h4>
@@ -217,6 +250,7 @@
               >
             </div>
           </div>
+
           <p class="muted small">*Valores negociáveis dependendo do escopo.</p>
         </section>
 
@@ -248,8 +282,7 @@
                   rows="4"
                   required
                   placeholder="Conte brevemente o site que precisa (modelo, páginas, domínio)"
-                >
-                </textarea>
+                ></textarea>
 
                 <button class="btn btn-primary" type="submit">Enviar</button>
               </form>
@@ -260,6 +293,7 @@
       </main>
     </div>
 
+    <!-- FOOTER -->
     <footer class="container footer">
       <div class="footer-inner">
         <p>
@@ -268,8 +302,6 @@
         <p class="muted">Contato: contato@vorinweb.com.br</p>
       </div>
     </footer>
-
-    <script src="./script.js"></script>
 
     <!-- POPUP MODELOS -->
     <div id="popup-overlay" class="popup-overlay">
@@ -282,59 +314,66 @@
         <button id="popup-confirm" class="popup-btn">Fale conosco</button>
       </div>
     </div>
+
+    <!-- WhatsApp Popup -->
+    <div class="wpp-popup" id="wppPopup">
+      <div class="wpp-header">
+        <strong>Fale conosco</strong>
+      </div>
+
+      <p class="wpp-text">
+        Olá! 👋<br />
+        Precisa de um orçamento rápido?
+      </p>
+
+      <a
+        href="https://wa.me/5511934900204?text=Olá!%20Quero%20fazer%20um%20site%20com%20vocês.%20Poderia%20me%20passar%20mais%20informações%3F"
+        target="_blank"
+        class="wpp-btn"
+      >
+        Peça agora
+      </a>
+    </div>
+
+    <div class="wpp-bubble" id="wppBubble">
+      <img src="./imgs/imgWPP.png" alt="WhatsApp" />
+    </div>
+
+    <script>
+      const toggle = document.getElementById("themeToggle");
+      const root = document.documentElement;
+
+      toggle.addEventListener("click", () => {
+        root.classList.toggle("dark");
+
+        toggle.textContent = root.classList.contains("dark") ? "☀️" : "🌙";
+      });
+
+      /* ============================================
+   REVEAL ON SCROLL
+   ============================================ */
+
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // performance: remove após exibir
+            }
+          });
+        },
+        {
+          threshold: 0.15, // 15% do elemento visível = anima
+        }
+      );
+
+      revealElements();
+
+      function revealElements() {
+        reveals.forEach((el) => observer.observe(el));
+      }
+    </script>
   </body>
 </html>
-
-<!-- WhatsApp Popup -->
-<div class="wpp-popup" id="wppPopup">
-  <div class="wpp-header">
-    <strong>Fale conosco</strong>
-  </div>
-
-  <p class="wpp-text">
-    Olá! 👋<br />
-    Precisa de um orçamento rápido?
-  </p>
-
-  <a
-    href="https://wa.me/5511934900204?text=Olá!%20Quero%20fazer%20um%20site%20com%20vocês.%20Poderia%20me%20passar%20mais%20informações%3F"
-    target="_blank"
-    class="wpp-btn"
-  >
-    Peça agora
-  </a>
-</div>
-
-<div class="wpp-bubble" id="wppBubble">
-  <img src="./imgs/imgWPP.png" alt="WhatsApp" />
-</div>
-
-<script>
-  const wppBubble = document.getElementById("wppBubble");
-  const wppPopup = document.getElementById("wppPopup");
-
-  // Abre/fecha no clique da bolha
-  wppBubble.onclick = () => {
-    wppPopup.classList.toggle("open");
-  };
-
-  // Fecha ao clicar fora do popup
-  document.addEventListener("click", (e) => {
-    const clickedOutside =
-      !wppPopup.contains(e.target) && !wppBubble.contains(e.target);
-
-    if (clickedOutside) {
-      wppPopup.classList.remove("open");
-    }
-  });
-
-  // Atualiza o ano no rodapé
-  document.getElementById("year").textContent = new Date().getFullYear();
-  document
-    .getElementById("contactForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      alert("Obrigado por entrar em contato! Responderemos em breve.");
-      this.reset();
-    });
-</script>
