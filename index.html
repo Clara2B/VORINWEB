@@ -64,6 +64,8 @@
 
     <!-- MENU MOBILE -->
     <div id="mobileMenu" class="mobile-menu">
+      <!-- BOTÃO DE TEMA NO MOBILE -->
+      <button id="themeToggleMobile" class="theme-toggle-mobile">🌙</button>
       <a href="#top">Início</a>
       <a href="#modelos">Modelos</a>
       <a href="#precos">Planos</a>
@@ -299,7 +301,7 @@
         <p>
           &copy; <span id="year"></span> VORINWEB. Todos os direitos reservados.
         </p>
-        <p class="muted">Contato: contato@vorinweb.com.br</p>
+        <p class="muted">Contato: vorinweb@gmail.com</p>
       </div>
     </footer>
 
@@ -340,19 +342,61 @@
     </div>
 
     <script>
-      const toggle = document.getElementById("themeToggle");
+    
+      /* THEME TOGGLE (desktop + mobile) + AUTO DARK MODE */
+      const toggleDesktop = document.getElementById("themeToggle");
+      const toggleMobile = document.getElementById("themeToggleMobile");
       const root = document.documentElement;
 
-      toggle.addEventListener("click", () => {
-        root.classList.toggle("dark");
+      function getActiveToggle() {
+        return window.innerWidth <= 900 ? toggleMobile : toggleDesktop;
+      }
 
-        toggle.textContent = root.classList.contains("dark") ? "☀️" : "🌙";
+      let toggle = getActiveToggle();
+
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme) {
+        root.classList.toggle("dark", savedTheme === "dark");
+      } else {
+        root.classList.toggle("dark", prefersDark);
+      }
+
+      function updateToggleIcon() {
+        const active = getActiveToggle();
+        if (!active) return;
+        active.textContent = root.classList.contains("dark") ? "☀️" : "🌙";
+      }
+      updateToggleIcon();
+
+      window.addEventListener("resize", () => {
+        toggle = getActiveToggle();
+        updateToggleIcon();
       });
 
-      /* ============================================
-   REVEAL ON SCROLL
-   ============================================ */
+      function handleToggleClick(e) {
+        e.stopPropagation();
+        toggle.classList.add("animate");
 
+        setTimeout(() => {
+          root.classList.toggle("dark");
+
+          const isDark = root.classList.contains("dark");
+          toggle.textContent = isDark ? "☀️" : "🌙";
+          toggle.classList.remove("animate");
+
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        }, 150);
+      }
+
+      toggleDesktop.addEventListener("click", handleToggleClick);
+      toggleMobile?.addEventListener("click", handleToggleClick);
+
+      /* REVEAL ON SCROLL */
       const reveals = document.querySelectorAll(".reveal");
 
       const observer = new IntersectionObserver(
@@ -360,20 +404,52 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
-              observer.unobserve(entry.target); // performance: remove após exibir
+              observer.unobserve(entry.target);
             }
           });
         },
-        {
-          threshold: 0.15, // 15% do elemento visível = anima
-        }
+        { threshold: 0.15 }
       );
 
-      revealElements();
+      reveals.forEach((el) => observer.observe(el));
 
-      function revealElements() {
-        reveals.forEach((el) => observer.observe(el));
+      /* MOBILE MENU */
+      const navToggle = document.getElementById("navToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      // Backdrop do menu
+      const backdrop = document.createElement("div");
+      backdrop.classList.add("menu-backdrop");
+      document.body.appendChild(backdrop);
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove("open");
+        backdrop.classList.remove("active");
       }
+
+      navToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+        backdrop.classList.toggle("active");
+      });
+
+      backdrop.addEventListener("click", closeMobileMenu);
+
+
+      /* WHATSAPP POPUP */
+      const wppPopup = document.getElementById("wppPopup");
+      const wppBubble = document.getElementById("wppBubble");
+
+      wppPopup.addEventListener("click", (e) => e.stopPropagation());
+
+      wppBubble.addEventListener("click", () => {
+        wppPopup.classList.add("active");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!wppPopup.contains(e.target) && !wppBubble.contains(e.target)) {
+          wppPopup.classList.remove("active");
+        }
+      });
     </script>
   </body>
 </html>
