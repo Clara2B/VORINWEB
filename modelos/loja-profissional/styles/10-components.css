@@ -1,0 +1,57 @@
+/* buttons variants to centralize styles */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 6px;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.08);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: var(--text);
+}
+.btn-ghost:hover {
+  background: #eee;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+.btn-outline:hover {
+  background: #e8f1ff;
+}
+
+/* outline focus */
+:focus {
+  outline: none;
+}
+a:focus,
+button:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.12);
+  border-radius: 6px;
+}
+
+/* quick product styles */
+.quickview {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.quick-img {
+  width: 120px;
+  height: 120px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  border: 2px dashed #ddd;
+}
+.quick-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+}

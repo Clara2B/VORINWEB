@@ -1,0 +1,28 @@
+
+.demo-ribbon{
+  background: var(--accent);
+  color:#fff;
+  text-align:center;
+  padding:6px 0;
+  font-weight:600;
+  font-size:.9rem;
+}
+
+.demo-bar{
+  width:100%;
+  background:#1f1f1f;
+  color:#fff;
+  text-align:center;
+  padding:8px 0;
+  font-size:.75rem;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1200;
+  border-bottom:2px solid #222;
+  user-select:none;
+}
+
+.hero, .catalog-wrapper, .site-footer{
+  padding: var(--space-xl) 0;
+}
