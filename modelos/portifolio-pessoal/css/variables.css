@@ -1,0 +1,28 @@
+:root {
+    --color-btt: #2a4eaf;
+    --accent: #9CA3AF;
+    --card: #FFFFFF;
+    --shadow: 0 3px 12px #204abd35; 
+    --muted: #6B7280;
+    --accent-strong: #74bcff;
+
+    --bg: #ffffff;
+    --text: #1a1a1a;
+
+    --radius: 10px;
+    --font-family: 'Inter', sans-serif;
+
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 28px;
+    --space-lg: 45px;
+}
+
+/* MODO ESCURO */
+html.dark {
+    --bg: #0f172a;
+    --text: #f1f5f9;
+    --card: #1e293b;
+    --shadow: 0 4px 18px #0006;
+    --accent: #94a3b8;
+}

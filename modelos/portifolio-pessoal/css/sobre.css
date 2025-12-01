@@ -1,0 +1,27 @@
+.sobre {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+    padding-top: 6rem;
+}
+
+.sobre .texto-container {
+    max-width: 600px;
+}
+
+.sobre h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.sobre p {
+    font-size: 1.15rem;
+}
+
+.sobre-foto {
+    width: 260px;
+    height: 260px;
+    border-radius: 20%;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}

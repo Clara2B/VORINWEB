@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio Profissional</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio Profissional — Demo</title>
+
+    <!-- CSS MODULAR -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/contato.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
+
+    <!-- DEMO BAR -->
+    <div class="demo-bar">DEMO</div>
+
+    <!-- BOTÃO DE TEMA -->
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+
     <!-- HERO -->
     <header class="hero">
-        <h1>Meu portifólio</h1>
+        <h1>Meu Portfólio</h1>
         <p>Soluções modernas para destacar sua marca no mundo digital.</p>
         <button id="btnPortifolio">Ver Portfólio</button>
     </header>
 
-    
-    <div class="demo-bar">DEMO</div>
-    
     <!-- SOBRE -->
     <section class="sobre" id="sobre">
         <div class="texto-container">
@@ -28,13 +44,15 @@
             </p>
         </div>
 
-    <div class="imgsobre">
-        <img class="sobre-foto" src="./img-exemplo.png" alt="Logo da Empresa ou Marca">
-    </div>
-</section>
+        <div class="imgsobre">
+            <img class="sobre-foto" src="./img-exemplo.png" alt="Logo da Empresa ou Marca">
+        </div>
+    </section>
+
     <!-- PORTFÓLIO -->
     <section class="portfolio" id="portfolio">
         <h2>Portfólio</h2>
+
         <div class="portfolio-grid">
             <div class="item">Projeto 01</div>
             <div class="item">Projeto 02</div>
@@ -48,6 +66,7 @@
     <!-- CONTATO -->
     <section class="contato" id="contato">
         <h2>Contato</h2>
+
         <form id="formContato">
             <label>Nome:</label>
             <input type="text" name="nome" required>
@@ -60,25 +79,14 @@
 
             <button type="submit">Enviar Mensagem</button>
         </form>
-    </section>   
+    </section>
 
-    <script>
-        // Scroll suave para o portfólio
-document.getElementById("btnPortifolio").addEventListener("click", () => {
-    document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
-});
+    <!-- JAVASCRIPT MODULAR -->
+    <script src="js/theme.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/contato.js"></script>
+    <script src="js/main.js"></script>
 
-// Formulário de contato
-document.getElementById("formContato").addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const nome = e.target.nome.value;
-    const email = e.target.email.value;
-
-    alert(`Obrigado, ${nome}! Entraremos em contato pelo email: ${email}.`);
-
-    e.target.reset();
-});
-    </script>
 </body>
+
 </html>
