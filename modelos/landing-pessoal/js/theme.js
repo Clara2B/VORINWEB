@@ -1,78 +1,142 @@
-/* ============================================================
-   THEME TOGGLE — LIGHT / DARK (versão final)
-============================================================ */
+document.addEventListener("DOMContentLoaded", () => {
 
-const root = document.documentElement;
+    /* =======================================================================
+       ELEMENTOS E VARIÁVEIS GLOBAIS
+    ======================================================================= */
 
-const btnDesktop = document.getElementById("themeToggle");
-const btnMobile = document.getElementById("themeToggleMobile");
+    // Seletores do Menu
+    const navToggle = document.getElementById("navToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const backdrop = document.querySelector(".menu-backdrop"); // Usa o backdrop do HTML
+    
+    // Seletores do Tema
+    const toggleDesktop = document.getElementById("themeToggle");
+    const toggleMobile = document.getElementById("themeToggleMobile");
+    const root = document.documentElement; // <html>
 
-/* ------------------------------------------------------------
-   Função: retorna qual botão deve ser usado (mobile ou desktop)
------------------------------------------------------------- */
-function getActiveButton() {
-  return window.innerWidth <= 900 ? btnMobile : btnDesktop;
-}
+    // ------------------------------------
+    // MENU MOBILE + BACKDROP
+    // ------------------------------------
 
-let activeBtn = getActiveButton();
+    /**
+     * Fecha o menu móvel, resetando classes do botão e do backdrop.
+     */
+    function closeMenu() {
+        if (mobileMenu) mobileMenu.classList.remove("open");
+        if (navToggle) navToggle.classList.remove("active");
+        if (backdrop) backdrop.classList.remove("active");
+    }
 
-/* Atualiza ao redimensionar */
-window.addEventListener("resize", () => {
-  activeBtn = getActiveButton();
-  updateIcon();
+    // Listener para Abrir/Fechar com o botão (Hambúrguer)
+    if (navToggle && mobileMenu && backdrop) {
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("active");
+            mobileMenu.classList.toggle("open");
+            backdrop.classList.toggle("active");
+        });
+
+        // Listener para Fechar clicando fora (no backdrop)
+        // **Isto agora funciona graças ao CSS corrigido e à unificação do JS!**
+        backdrop.addEventListener("click", closeMenu);
+    }
+    
+    // ------------------------------------
+    // SMOOTH SCROLL & FECHAR AO CLICAR NO LINK
+    // ------------------------------------
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", (e) => {
+            const id = link.getAttribute("href").slice(1);
+            const target = document.getElementById(id);
+            if (!target) return;
+
+            e.preventDefault();
+
+            // Calcular Offset para que o header não cubra o target
+            const headerH = document.querySelector(".site-header")?.offsetHeight || 0;
+            const demoH   = document.querySelector(".demo-bar")?.offsetHeight || 0; // Se você tiver o demo-bar
+            
+            const offset = headerH + demoH - 6;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+            window.scrollTo({ top, behavior: "smooth" });
+
+            // Fecha o menu após clicar em qualquer link âncora (se o menu estiver aberto)
+            closeMenu();
+        });
+    });
+
+    // ------------------------------------
+    // TEMA GLOBAL — DESKTOP + MOBILE
+    // ------------------------------------
+
+    // Preferência salva
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    // Aplicar tema inicial
+    if (savedTheme) {
+        root.classList.toggle("dark", savedTheme === "dark");
+    } else {
+        root.classList.toggle("dark", prefersDark);
+    }
+
+    /**
+     * Atualiza ícones dos botões de tema (sol ou lua).
+     */
+    function updateIcons() {
+        const icon = root.classList.contains("dark") ? "☀️" : "🌙";
+        if (toggleDesktop) toggleDesktop.textContent = icon;
+        if (toggleMobile) toggleMobile.textContent = icon;
+    }
+
+    updateIcons();
+
+    /**
+     * Alterna o tema de claro para escuro.
+     * @param {HTMLElement} btn - O botão que disparou a ação.
+     */
+    function toggleTheme(btn) {
+        btn.classList.add("animate");
+
+        setTimeout(() => {
+            root.classList.toggle("dark");
+
+            localStorage.setItem(
+                "theme",
+                root.classList.contains("dark") ? "dark" : "light"
+            );
+
+            updateIcons();
+            btn.classList.remove("animate");
+        }, 150);
+    }
+
+    // Adiciona listener para o botão Desktop
+    if (toggleDesktop) {
+        toggleDesktop.addEventListener("click", (e) => {
+            e.stopPropagation(); // Previne que o clique afete outros elementos (como o backdrop, se o menu estivesse aberto acidentalmente no desktop)
+            toggleTheme(toggleDesktop);
+        });
+    }
+
+    // Adiciona listener para o botão Mobile
+    if (toggleMobile) {
+        toggleMobile.addEventListener("click", (e) => {
+            e.stopPropagation(); // Essencial para que o clique não feche o menu (se o backdrop estiver abaixo)
+            toggleTheme(toggleMobile);
+        });
+    }
+
+
+    /* ============================================================
+       HEADER EFFECT ON SCROLL (Do seu nav.js original)
+    ============================================================ */
+
+    const header = document.querySelector(".site-header");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+    });
 });
-
-/* ------------------------------------------------------------
-   Preferências de tema (sistema + armazenamento local)
------------------------------------------------------------- */
-
-// Se o usuário já salvou uma escolha antes
-const storedTheme = localStorage.getItem("theme");
-
-// Preferência do sistema (caso o usuário nunca tenha escolhido)
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-// Aplica o tema correto
-if (storedTheme) {
-  root.classList.toggle("dark", storedTheme === "dark");
-} else {
-  root.classList.toggle("dark", prefersDark);
-}
-
-/* ------------------------------------------------------------
-   Atualiza o ícone (sol/lua)
------------------------------------------------------------- */
-function updateIcon() {
-  const isDark = root.classList.contains("dark");
-  const icon = isDark ? "☀️" : "🌙";
-
-  if (btnDesktop) btnDesktop.textContent = icon;
-  if (btnMobile) btnMobile.textContent = icon;
-}
-
-updateIcon();
-
-/* ------------------------------------------------------------
-   Função para alternar o tema
------------------------------------------------------------- */
-function toggleTheme() {
-  // animação do botão (curtinha e suave)
-  activeBtn.classList.add("animate");
-
-  setTimeout(() => {
-    root.classList.toggle("dark");
-
-    const newTheme = root.classList.contains("dark") ? "dark" : "light";
-    localStorage.setItem("theme", newTheme);
-
-    updateIcon();
-    activeBtn.classList.remove("animate");
-  }, 150);
-}
-
-/* ------------------------------------------------------------
-   Eventos do botão mobile e desktop
------------------------------------------------------------- */
-
-btnDesktop?.addEventListener("click", toggleTheme);
-btnMobile?.addEventListener("click", toggleTheme);

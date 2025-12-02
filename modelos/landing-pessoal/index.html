@@ -1,135 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Demo</title>
 
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/darkmode.css">
-</head>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/services.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/darkmode.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- DEMO BAR -->
     <div class="demo-bar" id="home">DEMO</div>
 
     <!-- HEADER -->
     <header class="site-header">
-        <div class="container header-inner">
-            
-            <div class="brand">
-                <span class="brand-name">LANDING DEMO</span>
-            </div>
-
-            <nav class="nav">
-
-                <!-- Menu mobile -->
-                <ul class="nav-list" id="navList">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#contact">Contato</a></li>
-
-                    <li class="mobile-only">
-                        <button id="themeToggleMobile" class="theme-toggle-mobile">🌙</button>
-                    </li>
-                </ul>
-
-                <!-- Botão dark mode desktop -->
-                <button id="themeToggle" class="theme-toggle">🌙</button>
-
-                <!-- Botão hamburguer -->
-                <button class="nav-toggle" id="navToggle">☰</button>
-
-            </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo-square" aria-hidden="true"></div>
+          <span class="brand-name"
+            >SUA LOJA AQUI <small class="brand-sub">Loja - Demo</small></span
+          >
         </div>
+
+        <nav class="nav">
+          <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-list" id="navList">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
+    <!-- MENU MOBILE -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button id="themeToggleMobile" class="theme-toggle-mobile">🌙</button>
+      <a href="#home">Home</a>
+      <a href="#services">Serviços</a>
+      <a href="#contact">Contato</a>
+    </div>
+
+    <!-- BACKDROP -->
+    <div class="menu-backdrop"></div>
+
+    
     <!-- HERO -->
     <section class="hero" id="hero">
-        <div class="hero-text reveal">
-            <h1>Transforme ideias em realidade com design e estratégia.</h1>
-            <p>Crio soluções modernas, rápidas e responsivas para destacar sua presença digital.</p>
+      <div class="hero-text reveal">
+        <h1>Transforme ideias em realidade com design e estratégia.</h1>
+        <p>
+          Crio soluções modernas, rápidas e responsivas para destacar sua
+          presença digital.
+        </p>
 
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary">Meus serviços</a>
-                <a href="#contact" class="btn btn-outline">Fale comigo</a>
-            </div>
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">Meus serviços</a>
+          <a href="#contact" class="btn btn-outline">Fale comigo</a>
         </div>
+      </div>
 
-        <div class="hero-img reveal"></div>
+      <div class="hero-img reveal"></div>
     </section>
 
     <!-- SERVICES -->
     <section class="services" id="services">
-        <h2 class="reveal">O que eu faço</h2>
+      <h2 class="reveal">O que eu faço</h2>
 
-        <div class="service-grid">
-            <div class="service reveal">
-                <h3>Identidade Visual</h3>
-                <p>Construção completa da sua marca com design profissional.</p>
-            </div>
-
-            <div class="service reveal">
-                <h3>Sites & Landing Pages</h3>
-                <p>Criação de páginas rápidas, modernas e orientadas à conversão.</p>
-            </div>
-
-            <div class="service reveal">
-                <h3>Marketing & Estratégia</h3>
-                <p>Gestão de presença digital e posicionamento online eficiente.</p>
-            </div>
+      <div class="service-grid">
+        <div class="service reveal">
+          <h3>Identidade Visual</h3>
+          <p>Construção completa da sua marca com design profissional.</p>
         </div>
+
+        <div class="service reveal">
+          <h3>Sites & Landing Pages</h3>
+          <p>Criação de páginas rápidas, modernas e orientadas à conversão.</p>
+        </div>
+
+        <div class="service reveal">
+          <h3>Marketing & Estratégia</h3>
+          <p>Gestão de presença digital e posicionamento online eficiente.</p>
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-        <h2 class="reveal">Vamos conversar?</h2>
-        <p class="reveal">Escolha a melhor forma de entrar em contato comigo.</p>
+      <h2 class="reveal">Vamos conversar?</h2>
+      <p class="reveal">Escolha a melhor forma de entrar em contato comigo.</p>
 
-        <div class="contact-buttons reveal">
-            <a href="mailto:seuemail@exemplo.com" class="btn btn-primary">Enviar e-mail</a>
-            <a href="https://wa.me/55XXXXXXXXX" class="btn btn-outline" target="_blank">WhatsApp</a>
-        </div>
+      <div class="contact-buttons reveal">
+        <a href="mailto:seuemail@exemplo.com" class="btn btn-primary"
+          >Enviar e-mail</a
+        >
+        <a
+          href="https://wa.me/55XXXXXXXXX"
+          class="btn btn-outline"
+          target="_blank"
+          >WhatsApp</a
+        >
+      </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-left">
-                <div class="logo-square small"></div>
-                <div>
-                    <h4 class="footer-brand">SUA LOJA AQUI</h4>
-                    <p class="footer-mini muted">Landing demonstrativa</p>
-                </div>
-            </div>
-
-            <div class="footer-right">
-                <a href="#home">Home</a>
-                <a href="#services">Serviços</a>
-                <a href="#contact">Contato</a>
-            </div>
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="logo-square small"></div>
+          <div>
+            <h4 class="footer-brand">SUA LOJA AQUI</h4>
+            <p class="footer-mini muted">Landing demonstrativa</p>
+          </div>
         </div>
 
-        <p class="footer-copy muted small">© 2025 — Apenas demonstração.</p>
+        <div class="footer-right">
+          <a href="#home">Home</a>
+          <a href="#services">Serviços</a>
+          <a href="#contact">Contato</a>
+        </div>
+      </div>
+
+      <p class="footer-copy muted small">© 2025 — Apenas demonstração.</p>
     </footer>
 
     <!-- JS -->
-    <script src="js/nav.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/reveal.js"></script>
-
-</body>
+  </body>
 </html>

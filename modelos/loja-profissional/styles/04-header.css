@@ -8,7 +8,7 @@
   padding: 16px 0;
   position: sticky;
   top: 0;
-  z-index: 1300;
+  z-index: 100;
 }
 .header-inner {
   display: flex;
@@ -75,7 +75,7 @@
   background: none;
   border: none;
   padding: 0;
-  z-index: 20000;
+  z-index: 150;
 }
 .nav-toggle span {
   display: block;
@@ -105,7 +105,7 @@ html.dark .nav-toggle span {
 /* ========================================================================== */
 .mobile-menu {
   position: fixed;
-  top: 0;
+  top: 15px;
   right: -280px;
   width: 260px;
   height: 100vh;
@@ -115,7 +115,7 @@ html.dark .nav-toggle span {
   flex-direction: column;
   gap: 25px;
   transition: right 0.35s ease;
-  z-index: 15000;
+  z-index: 999;
   box-shadow: -4px 0 25px #00000030;
 }
 .mobile-menu a:hover {
@@ -149,7 +149,7 @@ html.dark .mobile-menu {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
-  z-index: 14000;
+  z-index: 998;
 }
 .menu-backdrop.active {
   opacity: 1;
@@ -168,7 +168,7 @@ html.dark .mobile-menu {
   position: absolute;
   right: 20px;
   top: 16px;
-  z-index: 20000;
+  z-index: 997;
 }
 .theme-toggle:hover {
   transform: scale(1.25) rotate(12deg);
