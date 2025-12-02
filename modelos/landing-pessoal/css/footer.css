@@ -1,0 +1,134 @@
+/* ============================================================
+   FOOTER — rodapé moderno e minimalista
+============================================================ */
+
+.site-footer {
+  background: var(--surface);
+  padding: 60px 20px 35px;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+  transition: var(--transition);
+}
+
+.footer-inner {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   BLOCO ESQUERDO (logo + texto)
+============================================================ */
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-square {
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  border-radius: 8px;
+}
+
+.footer-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.footer-mini {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   LINKS DA DIREITA
+============================================================ */
+
+.footer-right {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.footer-right a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+
+.footer-right a:hover {
+  color: var(--primary);
+}
+
+/* ============================================================
+   COPYRIGHT
+============================================================ */
+
+.footer-copy {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   REVEAL ANIMATION (o JS ativa .visible)
+============================================================ */
+
+.site-footer.reveal,
+.footer-inner.reveal,
+.footer-copy.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: 0.6s ease;
+}
+
+.site-footer.reveal.visible,
+.footer-inner.reveal.visible,
+.footer-copy.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+============================================================ */
+
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .footer-right {
+    gap: 16px;
+  }
+
+  .logo-square {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer-brand {
+    font-size: 1rem;
+  }
+}

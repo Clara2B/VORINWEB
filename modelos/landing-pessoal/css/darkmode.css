@@ -1,0 +1,136 @@
+/* ====================================================================== */
+/* THEME VARIABLES — LIGHT MODE (DEFAULT) */
+/* ====================================================================== */
+
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f5f7fa;
+  --text: #0a1a2a;
+  --text-soft: #3a4958;
+
+  --primary: #0d47a1;
+  --primary-hover: #093270;
+
+  --border: #e5e5e5;
+  --muted: #7a8a99;
+
+  --card: #ffffff;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  --container-max: 1200px;
+
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-strong: 0 6px 22px rgba(0,0,0,0.10);
+
+  --transition: 0.25s ease;
+}
+
+/* Smooth transition between themes */
+html {
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ====================================================================== */
+/* DARK MODE */
+/* ====================================================================== */
+
+html.dark {
+  --bg: #0b0f14;
+  --surface: #12181f;
+  --surface-soft: #1a232e;
+  --text: #e8edf2;
+  --text-soft: #a9b4c0;
+
+  --primary: #4aa3ff;
+  --primary-hover: #1d7cd6;
+
+  --border: #26303b;
+  --muted: #9aa5b1;
+
+  --card: #141b22;
+
+  --shadow: 0 4px 16px rgba(0,0,0,0.35);
+  --shadow-strong: 0 8px 26px rgba(0,0,0,0.45);
+}
+
+/* ====================================================================== */
+/* GLOBAL DARK MODE FIXES */
+/* ====================================================================== */
+
+html.dark body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+html.dark a {
+  color: var(--text);
+}
+
+/* input & textarea */
+html.dark input,
+html.dark textarea {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: var(--muted);
+}
+
+/* Buttons */
+html.dark .btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+html.dark .btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+html.dark .btn-outline {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+html.dark .btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Sections backgrounds */
+html.dark .services {
+  background: var(--surface);
+}
+
+/* Hero */
+html.dark .hero-text p {
+  color: var(--text-soft);
+}
+
+/* Service cards */
+html.dark .service {
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+/* Contact */
+html.dark .contact {
+  background: var(--bg);
+}
+
+/* Footer */
+html.dark .site-footer {
+  background: #0a0a0a;
+  color: #ccc;
+}
+
+/* Demo bar */
+html.dark .demo-bar {
+  background: #101010;
+  color: #eee;
+}

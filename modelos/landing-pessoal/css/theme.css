@@ -1,0 +1,163 @@
+/* ============================================================
+   THEME — VARIABLES (Light & Dark)
+   Sistema oficial de tokens da landing
+============================================================ */
+
+/* ---------------------------
+   LIGHT THEME (DEFAULT)
+--------------------------- */
+:root {
+  /* Cores base */
+  --bg: #ffffff;
+  --surface: #f4f7fb;
+  --card: #ffffff;
+  --text: #0a1a2a;
+  --muted: #5f6b7a;
+
+  /* Marcas */
+  --primary: #0d47a1;
+  --primary-hover: #093270;
+  --accent: #0d47a1;
+
+  /* Bordas & sombras */
+  --border: #d6dde6;
+  --shadow: 0 5px 20px rgba(6, 30, 70, 0.08);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Espaçamentos */
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 40px;
+  --space-xl: 80px;
+
+  /* Container */
+  --container-max: 1200px;
+
+  /* Transições globais */
+  --transition: 0.25s ease;
+}
+
+/* ---------------------------
+   DARK THEME
+--------------------------- */
+html.dark {
+  --bg: #0f172a;
+  --surface: #111827;
+  --card: #1e293b;
+
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+
+  --primary: #60a5fa;
+  --primary-hover: #3b82f6;
+
+  --border: #1e293b;
+  --shadow: 0 5px 24px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ============================================================
+   GLOBAL THEME BEHAVIOR
+============================================================ */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+section, header, footer, div, article {
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+
+/* ============================================================
+   THEME TOGGLE BUTTON (DESKTOP)
+   — aparece ao lado da navbar
+============================================================ */
+
+.theme-toggle {
+  background: var(--card);
+  border: 2px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 20px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: static; /* fica no fluxo ao lado da navbar */
+  margin-left: 12px;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.12) rotate(6deg);
+}
+
+/* animação ao clicar */
+.theme-toggle.animate {
+  transform: scale(0.2) rotate(-90deg);
+  opacity: 0;
+}
+
+
+/* ============================================================
+   THEME TOGGLE — MOBILE (inside menu)
+============================================================ */
+
+.theme-toggle-mobile {
+  background: transparent;
+  border: 2px solid var(--border);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: var(--transition);
+  margin-top: 10px;
+  color: var(--text);
+}
+
+.theme-toggle-mobile:hover {
+  transform: scale(1.07);
+}
+
+html.dark .theme-toggle-mobile {
+  background: #1e293b;
+  color: #fff;
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE DOS BOTÕES
+============================================================ */
+
+/* DESKTOP ONLY button */
+@media (max-width: 900px) {
+  #themeToggle {
+    display: none;
+  }
+}
+
+/* MOBILE ONLY button */
+@media (min-width: 901px) {
+  #themeToggleMobile {
+    display: none;
+  }
+}

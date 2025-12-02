@@ -1,0 +1,191 @@
+/* ============================================================
+   HEADER — Navegação, menu mobile, dark mode button
+============================================================ */
+
+/* -----------------------
+   HEADER BASE
+------------------------ */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 9000;
+    transition: 0.25s ease;
+}
+
+.site-header.scrolled {
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* -----------------------
+   HEADER INNER
+------------------------ */
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+}
+
+.brand-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+}
+
+/* -----------------------
+   NAV — Desktop layout
+------------------------ */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    transition: 0.25s ease;
+}
+
+.nav-list a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: 0.25s ease;
+}
+
+.nav-list a:hover {
+    color: var(--primary);
+}
+
+/* -----------------------
+   DESKTOP THEME BUTTON
+------------------------ */
+
+.theme-toggle {
+    background: var(--card);
+    border: 2px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.12) rotate(6deg);
+}
+
+/* ==========================
+   HAMBURGER TOGGLE (mobile)
+========================== */
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--text);
+    transition: 0.25s ease;
+}
+
+.nav-toggle.active {
+    transform: rotate(90deg);
+}
+
+/* ============================================================
+   MOBILE MENU
+============================================================ */
+
+@media (max-width: 900px) {
+    .nav-list {
+        position: fixed;
+        top: 70px;
+        right: -260px;
+        width: 240px;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        gap: 20px;
+        background: var(--card);
+        padding: 30px 24px;
+        border-left: 1px solid var(--border);
+        box-shadow: -4px 0 18px rgba(0,0,0,0.1);
+        transition: right 0.35s ease;
+        z-index: 10000; /* acima do backdrop */
+    }
+
+    .nav-list.open {
+        right: 0;
+    }
+
+    /* mostra hamburguer */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* esconde botão desktop */
+    #themeToggle {
+        display: none;
+    }
+}
+
+/* ============================================================
+   MOBILE DARK MODE BUTTON
+============================================================ */
+
+.theme-toggle-mobile {
+    width: 100%;
+    padding: 10px 0;
+    border: 2px solid var(--border);
+    background: transparent;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.theme-toggle-mobile:hover {
+    transform: scale(1.05);
+}
+
+/* mobile only */
+@media (min-width: 901px) {
+    #themeToggleMobile {
+        display: none;
+    }
+}
+
+/* ============================================================
+   BACKDROP — fundo escurecido ao abrir menu
+============================================================ */
+
+.menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 8000; /* atrás do menu e acima do site */
+}
+
+.menu-backdrop.active {
+    opacity: 1;
+    pointer-events: all;
+}

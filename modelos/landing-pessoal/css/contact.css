@@ -1,0 +1,125 @@
+/* ============================================================
+   CONTACT — seção "Vamos conversar?"
+============================================================ */
+
+.contact {
+  padding: 90px 20px;
+  background: var(--bg);
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s ease;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 28px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s ease;
+}
+
+/* ============================================================
+   BOTÕES DE CONTATO
+============================================================ */
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s ease;
+}
+
+.contact-buttons .btn {
+  padding: 14px 26px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+/* Botão primário */
+.contact-buttons .btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+.contact-buttons .btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+}
+
+/* Botão outline */
+.contact-buttons .btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.contact-buttons .btn-outline:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   ANIMAÇÃO REVEAL (ativada pelo JS)
+============================================================ */
+
+.contact.reveal,
+.contact-buttons.reveal,
+.contact h2.reveal,
+.contact p.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact.reveal.visible,
+.contact-buttons.reveal.visible,
+.contact h2.reveal.visible,
+.contact p.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+============================================================ */
+
+@media (max-width: 600px) {
+  .contact {
+    padding: 70px 16px;
+  }
+
+  .contact h2 {
+    font-size: 2rem;
+  }
+
+  .contact-buttons {
+    gap: 14px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

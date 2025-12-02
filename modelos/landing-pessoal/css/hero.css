@@ -1,0 +1,110 @@
+/* ============================================================
+   HERO — seção principal
+============================================================ */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 80px;
+  flex-wrap: wrap;
+}
+
+/* -------------------------------
+   TEXTOS
+-------------------------------- */
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+.hero-text h2 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.hero-text p {
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+/* BOTÕES */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+/* -------------------------------
+   HERO IMAGE
+-------------------------------- */
+.hero-img {
+  flex: 1;
+  min-width: 300px;
+  height: 320px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #98d4ff, #9be3ff, #b4f9ff);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+html.dark .hero-img {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+.hero-img:hover {
+  transform: scale(1.03);
+}
+
+/* ============================================================
+   REVEAL (scroll animation)
+============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+============================================================ */
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 120px 20px 60px; /* mais espaço por causa do menu mobile */
+  }
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .hero-img {
+    width: 100%;
+    height: 260px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding: 60px 20px 60px; /* máximo espaçamento para mobiles menores */
+  }
+  .hero-text h2 {
+    font-size: 1.2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .hero-buttons a{
+    font-size: 0.9rem;
+  }
+}
