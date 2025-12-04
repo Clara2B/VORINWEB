@@ -1,0 +1,249 @@
+/* ============================================================ */
+/* THEME TOGGLE — PREMIUM BUTTON */
+/* ============================================================ */
+.theme-toggle {
+  transition: transform .25s ease, opacity .25s ease;
+  position: fixed;
+  top: 55px;
+  right: 20px;
+  z-index: 997;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  padding: 0.8rem;
+  cursor: pointer;
+  border: 2px solid rgba(18, 58, 160, 0.4);
+  font-size: 22px;
+  color: #123AA0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.theme-toggle.animate {
+  transform: scale(0.2) rotate(-90deg);
+  opacity: 0;
+}
+.theme-toggle.animate:hover {
+  transform: scale(0.2) rotate(-90deg) !important;
+}
+.theme-toggle:hover {
+  transform: scale(1.18) rotate(10deg);
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(18, 58, 160, 0.6);
+  box-shadow:
+    0 6px 16px rgba(18, 58, 160, 0.20),
+    inset 0 0 6px rgba(255, 255, 255, 0.45);
+}
+
+/* Press */
+.theme-toggle:active {
+  transform: scale(0.90);
+  box-shadow:
+    inset 0 0 10px rgba(0,0,0,0.12),
+    0 4px 10px rgba(0,0,0,0.15);
+}
+
+
+
+
+/* ---------- HERO ---------- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 90px 8%;
+  background: linear-gradient(135deg, #E8EEFA, #F8FAFF);
+  gap: 60px;
+}
+.hero-content {
+  max-width: 550px;
+}
+.hero-content h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #0A2A6A;
+}
+.hero-content h1 span {
+  color: #123AA0;
+}
+.hero-content p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: #4A4A4A;
+}
+
+/* Placeholder premium */
+.placeholder-premium {
+  width: 600px;
+  aspect-ratio: 16 / 9;
+  background: #ffffff;
+  border-radius: 15px;
+  border: 2px dashed #d0d9ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8b97b2;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+  transition: all .25s ease;
+}
+.placeholder-premium:hover {
+  border-color: #b9c5d6;
+  color: #74829a;
+  transform: scale(1.01);
+}
+
+
+
+/* RESPONSIVIDADE */
+/* ----------------------------
+   Tablets (≤ 1024px)
+---------------------------- */
+@media (max-width: 1024px) {
+  .theme-toggle {
+    top: 6%;
+    right: 5%;     
+    padding: 0.6rem;  
+    font-size: 22px;
+  }
+  .hero {
+    padding: 80px 6%;
+    gap: 40px;
+  }
+  .hero-content h1 {
+    font-size: 2.3rem;
+  }
+  .placeholder-premium {
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+/* ----------------------------
+   Mobile padrão (≤ 768px)
+---------------------------- */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 6%;
+    right: 4%;
+    padding: 0.7rem;
+    font-size: 20px;
+    border-width: 1.8px;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 70px 6%;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .placeholder-premium {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 16/10;
+  }
+}
+
+/* ----------------------------
+   Mobile pequeno (≤ 480px)
+---------------------------- */
+@media (max-width: 480px) {
+    .theme-toggle {
+    top: 7%;
+    right: 5%;
+    padding: 0.6rem;
+    font-size: 18px;
+    transform: translateY(2px);
+  }
+  .hero {
+    padding: 60px 5%;
+    gap: 35px;
+  }
+  .hero-content h1 {
+    font-size: 1.7rem;
+  }
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+  }
+  .placeholder-premium {
+    max-width: 350px;
+    aspect-ratio: 4/3;
+  }
+}
+
+/* ----------------------------
+   Mini telas (≤ 360px)
+---------------------------- */
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.55rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  .placeholder-premium {
+    max-width: 300px;
+    aspect-ratio: 4/3;
+  }
+  .theme-toggle {
+    top: 7%;
+    right: 5%;
+    padding: 0.6rem;
+    font-size: 18px;
+  }
+}
+
+
+
+
+/* ========================== */
+/* HERO — DARK MODE */
+/* ========================== */
+
+html.dark .hero {
+  background: linear-gradient(135deg, #0f141b, #111823);
+}
+
+html.dark .hero-content p {
+  color: var(--text-light);
+}
+
+html.dark .placeholder-premium {
+  background: var(--card);
+  border-color: #2a323d;
+  color: #8ea2c7;
+}
+
+html.dark .placeholder-premium:hover {
+  border-color: #3a4758;
+  color: #b7c9e6;
+}
+html.dark .theme-toggle {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(47, 140, 255, 0.1);
+  box-shadow: 0 0 12px rgba(47, 140, 255, 0.25);
+}
+
+html.dark .theme-toggle:hover {
+  transform: scale(1.2) rotate(10deg);
+  box-shadow: 0 0 16px rgba(47, 140, 255, 0.35);
+}
+html.dark .theme-toggle:active {
+  box-shadow: 
+    inset 0 0 12px rgba(0,0,0,0.25),
+    0 4px 12px rgba(0,0,0,0.2);
+}

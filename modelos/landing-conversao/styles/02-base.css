@@ -1,0 +1,215 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #F7F9FC;
+  color: #1E1E1E;
+  line-height: 1.6;
+  padding-top: 40px; 
+}
+
+/* === FAIXA DEMO NO TOPO === */
+.demo-bar {
+  width: 100%;
+  background: #1f1f1f;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  user-select: none;
+  border-bottom: 2px solid #222;
+}
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #0A2A6A;
+}
+
+.btn-primary {
+  background: #123AA0;
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.btn-primary:hover {
+  background: #0C2F85;
+  transform: translateY(-2px);
+}
+
+
+
+/* RESPONSIVIDADE */
+/* ============================================================
+   RESPONSIVIDADE — BASE.CSS
+============================================================ */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+  body {
+    padding-top: 50px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .btn-primary {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile padrão */
+@media (max-width: 768px) {
+  body {
+    padding-top: 55px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  body {
+    padding-top: 60px;
+  }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 360px) {
+  h2 {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+/* ================================
+   DARK MODE GLOBAL
+================================ */
+
+html.dark {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+
+  --card-bg: #1e293b;
+  --card-border: #334155;
+
+  --primary: #60a5fa;
+  --primary-dark: #3b82f6;
+
+  --placeholder-bg: #1e293b;
+  --placeholder-text: #cbd5e1;
+}
+
+html.dark body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HERO */
+html.dark .hero {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+
+html.dark .hero-content h1 {
+  color: var(--text);
+}
+
+html.dark .hero-content p {
+  color: var(--muted);
+}
+
+html.dark .placeholder-premium {
+  background: var(--placeholder-bg);
+  border-color: var(--card-border);
+  color: var(--placeholder-text);
+}
+
+/* BENEFÍCIOS */
+html.dark .card {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+}
+
+html.dark .card p {
+  color: var(--muted);
+}
+
+/* PRODUTO */
+html.dark .produto-info p,
+html.dark .produto-info li {
+  color: var(--muted);
+}
+
+html.dark .placeholder-produto {
+  background: var(--placeholder-bg);
+  border-color: var(--card-border);
+  color: var(--placeholder-text);
+}
+
+/* DEPOIMENTOS */
+html.dark .depoimentos {
+  background: #0f172a;
+}
+
+html.dark .dep-card {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+}
+
+html.dark .dep-card span {
+  color: var(--muted);
+}
+
+/* CTA FINAL */
+html.dark .cta-final {
+  background: #0f172a;
+}
+
+html.dark h2 {
+  color: var(--text);
+}
+
+/* Botão Premium */
+html.dark .btn-primary {
+  background: var(--primary);
+  box-shadow: 0 0 25px rgba(96,165,250,0.4);
+}

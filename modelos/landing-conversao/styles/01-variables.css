@@ -1,0 +1,30 @@
+/* ====================================================== */
+/* DARK MODE — VARIÁVEIS */
+/* ====================================================== */
+html.dark {
+  --bg: #0d1117;
+  --text: #e6eefb;
+  --text-light: #b9c4d4;
+  --primary: #2f8cff;
+  --primary-hover: #1f6fd1;
+
+  --card: #161b22;
+  --surface: #0f141b;
+
+  --border: #1f242c;
+  --shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+}
+:root {
+  --bg: #F7F9FC;
+  --text: #1E1E1E;
+  --muted: #4A4A4A;
+
+  --card-bg: #ffffff;
+  --card-border: #d0d9ec;
+
+  --primary: #123AA0;
+  --primary-dark: #0C2F85;
+
+  --placeholder-bg: #ffffff;
+  --placeholder-text: #8b97b2;
+}

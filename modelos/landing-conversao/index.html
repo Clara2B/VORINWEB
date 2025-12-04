@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produto Premium – Landing Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/01-variables.css">
+    <link rel="stylesheet" href="styles/02-base.css">
+    <link rel="stylesheet" href="styles/04-hero.css">
+    <link rel="stylesheet" href="styles/05-beneficios.css">
+    <link rel="stylesheet" href="styles/06-product.css">
+    <link rel="stylesheet" href="styles/07-depoiment.css">
+    <link rel="stylesheet" href="styles/08-cta.css">
+    <link rel="stylesheet" href="responsividade.css">
 </head>
 <body>
+
+   <button id="themeToggle" class="theme-toggle">🌙</button>
 
     <!-- HERO -->
     <header class="hero">
@@ -101,19 +110,64 @@
     </section>
 
     <!-- JS -->
-    <script>
-        const numero = "11934900204";
-        const produto = "Produto Premium de Alta Conversão";
+<script>
+  const numero = "11934900204";
+  const produto = "Produto Premium de Alta Conversão";
 
-        function enviarWpp() {
-            const texto = encodeURIComponent(`Olá! Quero adquirir o **${produto}**.`);
-            window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
-        }
+  // Aplica evento para todos os CTAs
+  document.querySelectorAll("[data-wpp]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const texto = encodeURIComponent(`Olá! Quero adquirir o **${produto}**.`);
+      window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+    });
+  });
 
-        document.getElementById("btn-cta").addEventListener("click", enviarWpp);
-        document.getElementById("btn-cta-2").addEventListener("click", enviarWpp);
-        document.getElementById("btn-cta-3").addEventListener("click", enviarWpp);
-    </script>
+  // ============================
+  // THEME TOGGLE — FUNCIONAL
+  // ============================
+
+  function toggleTheme() {
+
+  // ativa animação
+  themeToggle.classList.add("animate");
+
+  // aguarda animação de 250ms antes de trocar o tema
+  setTimeout(() => {
+    document.documentElement.classList.toggle("dark");
+    const isDark = document.documentElement.classList.contains("dark");
+
+    // muda ícone
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+
+    // salva tema
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    // remove animação com tempo EXATO do CSS
+    themeToggle.classList.remove("animate");
+
+  }, 250); // <— mesma duração da animação do CSS
+}
+
+  const themeToggle = document.getElementById("themeToggle");
+
+  function toggleTheme() {
+    document.documentElement.classList.toggle("dark");
+    const dark = document.documentElement.classList.contains("dark");
+
+    themeToggle.textContent = dark ? "☀️" : "🌙";
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  }
+
+  // Carrega tema salvo
+  const saved = localStorage.getItem("theme");
+  if (saved) {
+    document.documentElement.classList.toggle("dark", saved === "dark");
+    themeToggle.textContent = saved === "dark" ? "☀️" : "🌙";
+  }
+
+  // Só adiciona evento quando o botão realmente existe
+  themeToggle.addEventListener("click", toggleTheme);
+</script>
 
 </body>
 </html>
