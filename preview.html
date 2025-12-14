@@ -129,49 +129,93 @@
   <button class="action-btn choose" id="chooseBtn">Quero este modelo</button>
   
 
-  <script>
-
-    /* 1. Captura o parâmetro da URL (?modelo=...) */
-    const params = new URLSearchParams(window.location.search);
-    const modelo = params.get("modelo");
-  
-    const previewArea = document.getElementById("preview-area");
-    const modelName = document.getElementById("modelName");
-  
-    if (!modelo) {
-      previewArea.innerHTML = `
-        <div class="error-box">
-          <h2>Modelo não encontrado</h2>
-          <p>Volte e escolha um modelo novamente.</p>
-        </div>`;
-    } else {
-      // deixa o nome bonitão
-      const nomeFormatado = modelo.replaceAll("-", " ");
-      modelName.textContent = nomeFormatado;
-  
-      // cria o iframe com o modelo
-      const iframe = document.createElement("iframe");
-      iframe.src = "./modelos/" + modelo + "/index.html";
-  
-      iframe.onload = () => console.log("Modelo carregado:", modelo);
-  
-      previewArea.appendChild(iframe);
-    }
-  
-    /* 2. Botão “Quero este modelo” */
-    document.getElementById("chooseBtn").addEventListener("click", () => {
-      const numero = "5511934900204";
-  
-      // nome sem traços e em negrito no WhatsApp
-      const nomeFormatado = modelo.replaceAll("-", " ");
-      const msg = encodeURIComponent(
-        "Olá! Gostaria de solicitar o modelo: *" + nomeFormatado + "*"
-      );
-  
-      window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
-    });
-  
-  </script>  
-
 </body>
-</html>
+<script>
+
+  /* ============================================================
+   VORNINWEB — Preview de Modelos
+   ============================================================ */
+
+// 1️⃣ Captura o parâmetro da URL (?modelo=...)
+const params = new URLSearchParams(window.location.search);
+const modelo = params.get("modelo");
+
+const previewArea = document.getElementById("preview-area");
+const modelName = document.getElementById("modelName");
+
+// 2️⃣ Define o caminho base (funciona local e no GitHub Pages)
+const repoName = "VORINWEB"; // nome exato do repositório no GitHub
+const basePath = window.location.hostname.includes("github.io")
+  ? `/${repoName}`
+  : "";
+
+// 3️⃣ Função para exibir erro de modelo não encontrado
+function showError() {
+  previewArea.innerHTML = `
+    <div class="error-box">
+      <h2>Modelo não encontrado 😕</h2>
+      <p>Volte e escolha um modelo novamente.</p>
+    </div>
+  `;
+  modelName.textContent = "Modelo inválido";
+}
+
+// 4️⃣ Carrega o modelo no iframe
+function loadModel(modelNameParam) {
+  if (!modelNameParam) {
+    showError();
+    return;
+  }
+
+  const nomeFormatado =
+    modelNameParam.replaceAll("-", " ").replace(/\b\w/g, c => c.toUpperCase());
+
+  modelName.textContent = nomeFormatado;
+
+  const iframe = document.createElement("iframe");
+  iframe.src = `${basePath}/modelos/${modelNameParam}/index.html`;
+  iframe.loading = "lazy";
+
+  // feedback de carregamento
+  iframe.onload = () =>
+    console.log(`✅ Modelo carregado com sucesso: ${modelNameParam}`);
+
+  iframe.onerror = () => {
+    console.error(`❌ Erro ao carregar modelo: ${modelNameParam}`);
+    showError();
+  };
+
+  previewArea.appendChild(iframe);
+}
+
+// 5️⃣ Botão “Quero este modelo”
+function setupWhatsAppButton() {
+  const btn = document.getElementById("chooseBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    const numero = "5511934900204";
+    const nomeFormatado =
+      modelo?.replaceAll("-", " ").replace(/\b\w/g, c => c.toUpperCase()) ||
+      "modelo desconhecido";
+
+    const msg = encodeURIComponent(
+      `Olá! Gostaria de solicitar o modelo: *${nomeFormatado}*`
+    );
+
+    window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+  });
+}
+
+// 6️⃣ Inicialização geral
+function initPreview() {
+  if (!modelo) {
+    showError();
+  } else {
+    loadModel(modelo);
+    setupWhatsAppButton();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", initPreview);
+</script>
