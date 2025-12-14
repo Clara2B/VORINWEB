@@ -1,324 +1,346 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Preview do Modelo | Vorinweb</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preview do Modelo | Vorinweb</title>
 
-  <style>
-    /* ============================================================ */
-    /* VARIÁVEIS BASE */
-    /* ============================================================ */
-    :root {
-      --bg: #f3f4f6;
-      --surface: #ffffff;
-      --text: #1e293b;
-      --muted: #64748b;
-      --primary: #1e3a8a;
-      --primary-hover: #162f6b;
-      --border: #e2e8f0;
-      --radius: 10px;
-      --shadow: 0 4px 18px rgba(30, 58, 138, 0.15);
-    }
-
-    html.dark {
-      --bg: #111b21;
-      --surface: #202c33;
-      --text: #e9edf0;
-      --muted: #8696a0;
-      --primary: #25d366;
-      --primary-hover: #1ebc59;
-      --border: #2a3942;
-      --shadow: 0 0 24px rgba(0, 0, 0, 0.45);
-    }
-
-    /* ============================================================ */
-    /* BASE GERAL */
-    /* ============================================================ */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      transition: background 0.4s ease, color 0.4s ease;
-    }
-
-    /* ============================================================ */
-    /* HEADER */
-    /* ============================================================ */
-    .preview-header {
-      background: var(--surface);
-      padding: 16px 24px;
-      box-shadow: var(--shadow);
-      z-index: 10;
-      position: sticky;
-      top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.4s ease, color 0.4s ease;
-    }
-
-    .preview-header strong {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--primary);
-      transition: color 0.3s ease;
-    }
-
-    /* ============================================================ */
-    /* TEMA — BOTÃO FIXO */
-    /* ============================================================ */
-    .theme-toggle {
-      background: rgba(255, 255, 255, 0.65);
-      border: 2px solid rgba(37, 211, 102, 0.4);
-      backdrop-filter: blur(6px);
-      color: var(--primary);
-      font-size: 22px;
-      border-radius: 50%;
-      padding: 0.65rem;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-      transition: transform 0.25s ease, background 0.25s ease;
-      position: fixed;
-      top: 20px;
-      right: 22px;
-      z-index: 20000;
-    }
-
-    .theme-toggle:hover {
-      transform: scale(1.15) rotate(10deg);
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    html.dark .theme-toggle {
-      background: #1c272e;
-      color: #25d366;
-      border-color: #25d366;
-      box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
-    }
-
-    /* ============================================================ */
-    /* ÁREA DE PREVIEW */
-    /* ============================================================ */
-    .preview-wrapper {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg);
-      position: relative;
-    }
-
-    iframe {
-      width: 100%;
-      height: calc(100vh - 80px);
-      border: none;
-      background: var(--surface);
-      transition: opacity 0.4s ease;
-    }
-
-    iframe.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    /* ============================================================ */
-    /* LOADER */
-    /* ============================================================ */
-    .loader {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--primary);
-      font-weight: 600;
-      text-align: center;
-      font-size: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .spinner {
-      border: 3px solid #e5e7eb;
-      border-top: 3px solid var(--primary);
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
+    <style>
+      /* ============================================================ */
+      /* VARIÁVEIS BASE */
+      /* ============================================================ */
+      :root {
+        --bg: #f3f4f6;
+        --surface: #ffffff;
+        --text: #1e293b;
+        --muted: #64748b;
+        --primary: #1e3a8a;
+        --primary-hover: #162f6b;
+        --border: #e2e8f0;
+        --radius: 10px;
+        --shadow: 0 4px 18px rgba(30, 58, 138, 0.15);
       }
-    }
 
-    /* ============================================================ */
-    /* BOTÕES FLUTUANTES */
-    /* ============================================================ */
-    .action-btn {
-      position: fixed;
-      bottom: 24px;
-      padding: 14px 22px;
-      background: var(--primary);
-      color: #fff;
-      font-weight: bold;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      border: none;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.25s ease, background 0.25s ease;
-      z-index: 20;
-    }
+      html.dark {
+        --bg: #111b21;
+        --surface: #202c33;
+        --text: #e9edf0;
+        --muted: #8696a0;
+        --primary: #25d366;
+        --primary-hover: #1ebc59;
+        --border: #2a3942;
+        --shadow: 0 0 24px rgba(0, 0, 0, 0.45);
+      }
 
-    .action-btn:hover {
-      transform: scale(1.05);
-      background: var(--primary-hover);
-    }
+      /* ============================================================ */
+      /* BASE GERAL */
+      /* ============================================================ */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    .action-btn.return {
-      left: 24px;
-    }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background 0.4s ease, color 0.4s ease;
+      }
 
-    .action-btn.choose {
-      right: 24px;
-    }
-
-    /* ============================================================ */
-    /* ERRO */
-    /* ============================================================ */
-    .error-box {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--muted);
-    }
-
-    .error-box h2 {
-      color: var(--primary);
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-    }
-
-    /* ============================================================ */
-    /* RESPONSIVIDADE */
-    /* ============================================================ */
-    @media (max-width: 768px) {
+      /* ============================================================ */
+      /* HEADER */
+      /* ============================================================ */
       .preview-header {
-        padding: 14px 18px;
+        background: var(--surface);
+        padding: 16px 24px;
+        box-shadow: var(--shadow);
+        z-index: 10;
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border);
+        transition: background 0.4s ease, color 0.4s ease;
       }
 
-      .action-btn {
-        padding: 12px 18px;
-        font-size: 0.9rem;
+      .preview-header strong {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--primary);
+        transition: color 0.3s ease;
+      }
+
+      /* ============================================================ */
+      /* TEMA — BOTÃO FIXO */
+      /* ============================================================ */
+      .theme-toggle {
+        background: rgba(255, 255, 255, 0.65);
+        border: 2px solid rgba(37, 211, 102, 0.4);
+        backdrop-filter: blur(6px);
+        color: var(--primary);
+        font-size: 22px;
+        border-radius: 50%;
+        padding: 0.65rem;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        transition: transform 0.25s ease, background 0.25s ease;
+        position: fixed;
+        top: 20px;
+        right: 22px;
+        z-index: 20000;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.15) rotate(10deg);
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      html.dark .theme-toggle {
+        background: #1c272e;
+        color: #25d366;
+        border-color: #25d366;
+        box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+      }
+
+      /* ============================================================ */
+      /* ÁREA DE PREVIEW */
+      /* ============================================================ */
+      .preview-wrapper {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        position: relative;
       }
 
       iframe {
-        height: calc(100vh - 100px);
+        width: 100%;
+        height: calc(100vh - 80px);
+        border: none;
+        background: var(--surface);
+        transition: opacity 0.4s ease;
       }
-    }
-  </style>
-</head>
 
-<body>
+      iframe.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
 
-  <header class="preview-header">
-    <strong id="modelName">Carregando modelo...</strong>
-  </header>
+      /* ============================================================ */
+      /* LOADER */
+      /* ============================================================ */
+      .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--primary);
+        font-weight: 600;
+        text-align: center;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
 
-  <div class="preview-wrapper" id="preview-area">
-    <div class="loader" id="loader">
-      <div class="spinner"></div>
-      <span>Carregando modelo...</span>
+      .spinner {
+        border: 3px solid #e5e7eb;
+        border-top: 3px solid var(--primary);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ============================================================ */
+      /* BOTÕES FLUTUANTES */
+      /* ============================================================ */
+      .action-btn {
+        position: fixed;
+        bottom: 24px;
+        padding: 14px 22px;
+        background: var(--primary);
+        color: #fff;
+        font-weight: bold;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.25s ease, background 0.25s ease;
+        z-index: 20;
+      }
+
+      .action-btn:hover {
+        transform: scale(1.05);
+        background: var(--primary-hover);
+      }
+
+      .action-btn.return {
+        left: 24px;
+      }
+
+      .action-btn.choose {
+        right: 24px;
+      }
+
+      /* ============================================================ */
+      /* ERRO */
+      /* ============================================================ */
+      .error-box {
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--muted);
+      }
+
+      .error-box h2 {
+        color: var(--primary);
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+      }
+
+      /* ============================================================ */
+      /* RESPONSIVIDADE */
+      /* ============================================================ */
+      @media (max-width: 768px) {
+        .preview-header {
+          padding: 14px 18px;
+        }
+
+        .action-btn {
+          padding: 12px 18px;
+          font-size: 0.9rem;
+        }
+
+        iframe {
+          height: calc(100vh - 100px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="preview-header">
+      <strong id="modelName">Carregando modelo...</strong>
+    </header>
+
+    <div class="preview-wrapper" id="preview-area">
+      <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <span>Carregando modelo...</span>
+      </div>
     </div>
-  </div>
 
-  <!-- Botões flutuantes -->
-  <a href="./index.html#modelos" class="action-btn return">⬅ Voltar</a>
-  <button class="action-btn choose" id="chooseBtn">Quero este modelo 💬</button>
+    <!-- Botões flutuantes -->
+    <a href="./index.html#modelos" class="action-btn return">⬅ Voltar</a>
+    <button class="action-btn choose" id="chooseBtn">
+      Quero este modelo 💬
+    </button>
 
-  <script>
-    /* ============================================================
-       CONFIGURAÇÕES INICIAIS
-    ============================================================ */
-    const params = new URLSearchParams(window.location.search);
-    const modelo = params.get("modelo");
-    const previewArea = document.getElementById("preview-area");
-    const modelName = document.getElementById("modelName");
-    const loader = document.getElementById("loader");
-    const repoName = "VORINWEB";
-    const basePath = window.location.hostname.includes("github.io")
-      ? `/${repoName}`
-      : "";
+    <script>
+      /* ============================================================
+     CONFIGURAÇÕES INICIAIS
+  ============================================================ */
+      const params = new URLSearchParams(window.location.search);
+      const modelo = params.get("modelo");
+      const previewArea = document.getElementById("preview-area");
+      const modelName = document.getElementById("modelName");
+      const loader = document.getElementById("loader");
+      const repoName = "VORINWEB";
 
+      // Detecta se está no GitHub Pages e adiciona o repositório corretamente
+      const basePath = window.location.hostname.includes("github.io")
+        ? `/${repoName}`
+        : "";
 
-    /* ============================================================
-       FUNÇÕES DE PREVIEW
-    ============================================================ */
-    function showError() {
-      loader.style.display = "none";
-      previewArea.innerHTML = `
-        <div class="error-box">
-          <h2>Modelo não encontrado 😕</h2>
-          <p>Volte e escolha um modelo novamente.</p>
-        </div>`;
-      modelName.textContent = "Modelo inválido";
-    }
+      /* ============================================================
+     FUNÇÕES DE PREVIEW
+  ============================================================ */
+      function showError() {
+        if (loader) loader.style.display = "none";
+        previewArea.innerHTML = `
+      <div class="error-box">
+        <h2>Modelo não encontrado 😕</h2>
+        <p>Volte e escolha um modelo novamente.</p>
+      </div>`;
+        modelName.textContent = "Modelo inválido";
+      }
 
-    function loadModel(name) {
-      if (!name) return showError();
+      function loadModel(name) {
+        if (!name) return showError();
 
-      const nomeFormatado = name.replaceAll("-", " ").replace(/\b\w/g, c => c.toUpperCase());
-      modelName.textContent = nomeFormatado;
+        const nomeFormatado = name
+          .replaceAll("-", " ")
+          .replace(/\b\w/g, (c) => c.toUpperCase());
+        modelName.textContent = nomeFormatado;
 
-      const iframe = document.createElement("iframe");
-      iframe.classList.add("hidden");
-      iframe.src = `${basePath}/modelos/${name}/index.html`;
-      previewArea.appendChild(iframe);
+        const iframe = document.createElement("iframe");
+        iframe.classList.add("hidden");
 
-      iframe.onload = () => {
-        loader.style.display = "none";
-        iframe.classList.remove("hidden");
-      };
+        // Caminho dinâmico compatível com GitHub Pages e localhost
+        const modelPath = `${basePath}/modelos/${name}/index.html`;
+        console.log("📂 Carregando modelo de:", modelPath);
 
-      iframe.onerror = () => showError();
-    }
+        iframe.src = modelPath;
+        previewArea.appendChild(iframe);
 
-    function setupWhatsAppButton() {
-      const btn = document.getElementById("chooseBtn");
-      if (!btn) return;
+        iframe.onload = () => {
+          if (loader) loader.style.display = "none";
+          iframe.classList.remove("hidden");
+          console.log("✅ Modelo carregado com sucesso");
+        };
 
-      btn.addEventListener("click", () => {
-        const numero = "5511934900204";
-        const nomeFormatado =
-          modelo?.replaceAll("-", " ").replace(/\b\w/g, c => c.toUpperCase()) || "modelo desconhecido";
-        const msg = encodeURIComponent(
-          `Olá! Gostaria de solicitar o modelo: *${nomeFormatado}*`
-        );
-        window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+        iframe.onerror = () => {
+          console.error("❌ Erro ao carregar modelo:", modelPath);
+          showError();
+        };
+      }
+
+      /* ============================================================
+     BOTÃO DE WHATSAPP
+  ============================================================ */
+      function setupWhatsAppButton() {
+        const btn = document.getElementById("chooseBtn");
+        if (!btn) return;
+
+        btn.addEventListener("click", () => {
+          const numero = "5511934900204";
+          const nomeFormatado =
+            modelo
+              ?.replaceAll("-", " ")
+              .replace(/\b\w/g, (c) => c.toUpperCase()) ||
+            "modelo desconhecido";
+          const msg = encodeURIComponent(
+            `Olá! Gostaria de solicitar o modelo: *${nomeFormatado}*`
+          );
+          window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+        });
+      }
+
+      /* ============================================================
+     INICIALIZAÇÃO
+  ============================================================ */
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!modelo) showError();
+        else loadModel(modelo);
+        setupWhatsAppButton();
       });
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      if (!modelo) showError();
-      else loadModel(modelo);
-      setupWhatsAppButton();
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
