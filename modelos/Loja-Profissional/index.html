@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loja Profissional — Demo | Vorniweb</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!--LINKS DO CSS-->
+  <link rel="stylesheet" href="styles/01-variables.css">
+  <link rel="stylesheet" href="styles/02-base.css">
+  <link rel="stylesheet" href="styles/03-layout.css">
+  <link rel="stylesheet" href="styles/04-header.css">
+  <link rel="stylesheet" href="styles/05-hero.css">
+  <link rel="stylesheet" href="styles/06-catalog.css">
+  <link rel="stylesheet" href="styles/07-modal.css">
+  <link rel="stylesheet" href="styles/08-contact.css">
+  <link rel="stylesheet" href="styles/09-footer.css">
+  <link rel="stylesheet" href="styles/10-components.css">
+  <link rel="stylesheet" href="styles/11-utilities.css">
+</head>
+<body>
+
+  <!-- DEMO RIBBON -->
+  <div class="demo-ribbon">DEMO</div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+   <button id="themeToggle" class="theme-toggle">🌙</button>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo-square" aria-hidden="true"></div>
+        <span class="brand-name">SUA LOJA AQUI <small class="brand-sub">Loja - Demo</small></span>
+      </div>
+
+      <nav class="nav">
+<button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+  <ul class="nav-list" id="navList">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#catalog">Catálogo</a></li>
+  <li><a href="#contact">Contato</a></li>
+  </ul>
+  </nav>
+  </div>
+</header>
+
+  <!-- MENU MOBILE PREMIUM -->
+<div class="mobile-menu" id="mobileMenu">
+  <button id="themeToggleMobile" class="theme-toggle-mobile">🌙</button>
+  <a href="#home">Home</a>
+  <a href="#catalog">Catálogo</a>
+  <a href="#contact">Contato</a>
+</div>
+
+
+<!-- BACKDROP -->
+<div class="menu-backdrop"></div>
+
+
+<div class="demo-bar">DEMO</div>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Loja profissional pronta para alavancar vendas</h1>
+        <p class="lead">Demo funcional de landing + catálogo + contato. Projeto minimalista, responsivo e otimizado para conversão.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#catalog">Ver catálogo</a>
+          <a class="btn btn-ghost" href="#contact">Contato</a>
+        </div>
+
+        <ul class="hero-features">
+          <li>📦 Catálogo organizado</li>
+          <li>⚡ Performance otimizada</li>
+          <li>🔒 Pagamento integrado</li>
+        </ul>
+      </div>
+
+    <section class="hero-minimal">
+        <div class="hero-container">
+            <h1>Visualização do Modelo</h1>
+            <p>Explore a demonstração abaixo. Esta é apenas uma <strong>prévia interativa</strong> do modelo selecionado.</p>
+        </div>
+    </section>
+    </div>
+  </section>  
+
+
+  <!-- CATALOG -->
+<section id="catalog" class="catalog-wrapper">
+    <div class="catalog-inner">
+        <h2>Catálogo</h2>
+        <p class="muted">Produtos fictícios usados para demonstrar layout e interações.</p>
+
+      <div class="products-grid">
+      <!-- Product 1 -->
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true">
+          <div class="img-placeholder">Imagem</div>
+        </div>
+        <h3 class="product-title">Tênis Runner X</h3>
+        <p class="product-price">R$ 249,00</p>
+        <p class="product-desc muted small">Tênis de corrida com amortecimento e design moderno.</p>
+
+        <div class="product-actions">
+          <button class="btn btn-outline btn-quick" data-name="Tênis Runner X" data-price="R$ 249,00">Visualizar demo</button>
+          <button class="btn btn-primary btn-buy" data-name="Tênis Runner X">Quero este</button>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true">
+          <div class="img-placeholder">Imagem</div>
+        </div>
+        <h3 class="product-title">Mochila Urban</h3>
+        <p class="product-price">R$ 179,00</p>
+        <p class="product-desc muted small">Mochila resistente com compartimento para notebook.</p>
+
+        <div class="product-actions">
+          <button class="btn btn-outline btn-quick" data-name="Mochila Urban" data-price="R$ 179,00">Visualizar demo</button>
+          <button class="btn btn-primary btn-buy" data-name="Mochila Urban">Quero este</button>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true">
+          <div class="img-placeholder">Imagem</div>
+        </div>
+        <h3 class="product-title">Relógio Neo</h3>
+        <p class="product-price">R$ 319,00</p>
+        <p class="product-desc muted small">Relógio inteligente com monitor de atividades.</p>
+
+        <div class="product-actions">
+          <button class="btn btn-outline btn-quick" data-name="Relógio Neo" data-price="R$ 319,00">Visualizar demo</button>
+          <button class="btn btn-primary btn-buy" data-name="Relógio Neo">Quero este</button>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true">
+          <div class="img-placeholder">Imagem</div>
+        </div>
+        <h3 class="product-title">Fone Studio</h3>
+        <p class="product-price">R$ 129,00</p>
+        <p class="product-desc muted small">Fone com cancelamento e som de alta fidelidade.</p>
+
+        <div class="product-actions">
+          <button class="btn btn-outline btn-quick" data-name="Fone Studio" data-price="R$ 129,00">Visualizar demo</button>
+          <button class="btn btn-primary btn-buy" data-name="Fone Studio">Quero este</button>
+        </div>
+      </article>
+    </div>
+</section>
+ 
+
+  <!-- PRODUCT QUICKVIEW / CONFIRM POPUP (re-usable modal) -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" id="modal">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+      <div class="modal-body" id="modalBody">
+        <!-- content injected by JS -->
+      </div>
+      <div class="modal-actions">
+        <a href="#" id="modalBuy" class="btn btn-primary">Quero este</a>
+        <button id="modalCancel" class="btn btn-ghost">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+  <div class="container contact-grid">
+
+    <!-- LEFT: Call to action WhatsApp -->
+    <div class="contact-info">
+      <h2>Fale com a gente</h2>
+      <p class="muted">
+        Atendimento rápido, direto e sem complicações. Clique no botão abaixo
+        para falar com um especialista agora mesmo.
+      </p>
+
+      <a 
+        href="https://wa.me/5511934900204?text=Olá!%20Quero%20saber%20mais%20sobre%20este%20modelo."
+        target="_blank"
+        class="contact-whatsapp-btn"
+      >
+        💬 Falar no WhatsApp
+      </a>
+
+      <p class="small muted contact-or">ou, se preferir, envie um e-mail:</p>
+    </div>
+
+    <!-- RIGHT: Minimal form -->
+    <form class="contact-form" id="contactForm">
+      <label for="cname">Nome</label>
+      <input type="text" id="cname" name="cname" required />
+
+      <label for="cemail">E-mail</label>
+      <input type="email" id="cemail" name="cemail" required />
+
+      <label for="cmsg">Mensagem</label>
+      <textarea id="cmsg" name="cmsg" rows="4" required></textarea>
+
+      <button type="submit" class="btn btn-primary contact-submit">
+        Enviar mensagem
+      </button>
+    </form>
+
+  </div>
+</section>
+
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="logo-square small" aria-hidden="true"></div>
+      <div>
+        <h4 class="footer-brand">SUA LOJA AQUI</h4>
+        <p class="footer-mini muted">Landing page demonstrativa</p>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <a href="#home">Home</a>
+      <a href="#catalog">Catálogo</a>
+      <a href="#contact">Contato</a>
+    </div>
+  </div>
+
+  <p class="footer-copy muted small">© 2025 — Demo criada apenas para visualização.</p>
+</footer>
+</body>
+</html>
+
+<script>
+/* MENU MOBILE PREMIUM */
+const navToggle = document.getElementById("navToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+const backdrop = document.querySelector(".menu-backdrop");
+
+navToggle.addEventListener("click", () => {
+  navToggle.classList.toggle("active");
+  mobileMenu.classList.toggle("open");
+  backdrop.classList.toggle("active");
+});
+
+// fechar clicando fora
+backdrop.addEventListener("click", () => {
+  navToggle.classList.remove("active");
+  mobileMenu.classList.remove("open");
+  backdrop.classList.remove("active");
+});
+
+
+/* ==========================================================
+   TEMA GLOBAL — DESKTOP + MOBILE
+========================================================== */
+
+const toggleDesktop = document.getElementById("themeToggle");
+const toggleMobile = document.getElementById("themeToggleMobile");
+
+const root = document.documentElement;
+
+// Preferência salva
+const savedTheme = localStorage.getItem("theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+// Aplicar tema inicial
+if (savedTheme) {
+  root.classList.toggle("dark", savedTheme === "dark");
+} else {
+  root.classList.toggle("dark", prefersDark);
+}
+
+// Atualiza ícones
+function updateIcons() {
+  const icon = root.classList.contains("dark") ? "☀️" : "🌙";
+  if (toggleDesktop) toggleDesktop.textContent = icon;
+  if (toggleMobile) toggleMobile.textContent = icon;
+}
+
+updateIcons();
+
+// Alternância
+function toggleTheme(btn) {
+  btn.classList.add("animate");
+
+  setTimeout(() => {
+    root.classList.toggle("dark");
+
+    localStorage.setItem(
+      "theme",
+      root.classList.contains("dark") ? "dark" : "light"
+    );
+
+    updateIcons();
+    btn.classList.remove("animate");
+  }, 150);
+}
+
+if (toggleDesktop) {
+  toggleDesktop.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleTheme(toggleDesktop);
+  });
+}
+
+if (toggleMobile) {
+  toggleMobile.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleTheme(toggleMobile);
+  });
+}
+
+
+
+
+// ======================================================================
+// MODULE 2 — MODAL (Utilizado por Quickview + Quero Este)
+// ======================================================================
+(function modalModule() {
+  const overlay = document.getElementById("overlay");
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modalBody");
+  const modalClose = document.getElementById("modalClose");
+  const modalCancel = document.getElementById("modalCancel");
+  const modalBuy = document.getElementById("modalBuy");
+
+  if (!overlay || !modal) return;
+
+  function openModal() {
+    overlay.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden"; // trava scroll
+  }
+
+  function closeModal() {
+    overlay.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = ""; // libera scroll
+  }
+
+  // fechar botões
+  modalClose?.addEventListener("click", closeModal);
+  modalCancel?.addEventListener("click", closeModal);
+
+  // fechar clicando fora do modal
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  // fechar com ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // Quickview
+  document.querySelectorAll(".btn-quick").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const name = btn.dataset.name;
+      const price = btn.dataset.price;
+
+      modalBody.innerHTML = `
+        <div class="quickview">
+          <div class="quick-img" aria-hidden="true"></div>
+          <div class="quick-info">
+            <h3>${name} <span class="muted small">${price}</span></h3>
+            <p class="muted small">Visualização interativa deste produto — comportamento de demo.</p>
+          </div>
+        </div>
+      `;
+
+      modalBuy.href =
+        "https://wa.me/5511934900204?text=" +
+        encodeURIComponent("Olá! Quero solicitar o produto: " + name);
+
+      openModal();
+    });
+  });
+
+  // Comprar ("Quero este")
+  document.querySelectorAll(".btn-buy").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const name = btn.dataset.name;
+
+      modalBody.innerHTML = `
+        <h3>Deseja solicitar seu site ou tirar dúvidas sobre este modelo?</h3>
+        <p class="muted small">Modelo: <strong>${name}</strong></p>
+      `;
+
+      modalBuy.href =
+        "https://wa.me/5511934900204?text=" +
+        encodeURIComponent("Olá! Gostaria de falar sobre o modelo: " + name);
+
+      openModal();
+    });
+  });
+})();
+
+
+// ======================================================================
+// MODULE 3 — FORMULÁRIO DE CONTATO (Demo)
+// ======================================================================
+(function contactModule() {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Sua mensagem foi enviada! (DEMO) — aqui entraria integração real.");
+    form.reset();
+  });
+})();
+</script>
