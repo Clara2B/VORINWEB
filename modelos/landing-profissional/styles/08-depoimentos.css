@@ -1,0 +1,320 @@
+/* ============================================================ */
+/* TESTEMUNHOS — DESIGN PREMIUM UI */
+/* ============================================================ */
+
+.testimonials {
+  background: linear-gradient(180deg, #f9fbff 0%, #ffffff 100%);
+  padding: 100px 8%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* DECORAÇÃO DE FUNDO */
+.testimonials::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 87, 255, 0.06), transparent 70%);
+  z-index: 0;
+}
+.testimonials::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(0, 119, 255, 0.05), transparent 70%);
+  z-index: 0;
+}
+
+/* CONTAINER */
+.testimonials .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* TÍTULO */
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0a2a6a;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.testimonials h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, #0057ff, #00b4ff);
+  border-radius: 4px;
+  margin: 12px auto 0;
+}
+
+/* GRID */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* CARD */
+.testimonial-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf5;
+  border-radius: 18px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* DECORAÇÃO SUTIL */
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #0057ff, #00b4ff);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.testimonial-card:hover::before {
+  opacity: 1;
+}
+
+/* TEXTO */
+.testimonial-card p {
+  font-size: 1.05rem;
+  color: #374151;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+/* NOME */
+.testimonial-card strong {
+  color: #0a2a6a;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 0.95rem;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+
+/* INTERAÇÃO */
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 87, 255, 0.15);
+  border-color: #0077ff3d;
+}
+
+/* ============================================================ */
+/* RESPONSIVIDADE */
+/* ============================================================ */
+@media (max-width: 1024px) {
+  .testimonials {
+    padding: 80px 6%;
+  }
+  .testimonial-card {
+    padding: 36px 26px;
+  }
+  .testimonials h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 70px 5%;
+  }
+
+  .testimonials h2 {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .testimonial-card {
+    text-align: center;
+  }
+}
+
+/* ============================================================ */
+/* DARK MODE — PREMIUM */
+/* ============================================================ */
+html.dark .testimonials {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+
+html.dark .testimonials h2 {
+  color: #e2e8f0;
+}
+
+html.dark .testimonial-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .testimonial-card p {
+  color: #cbd5e1;
+}
+
+html.dark .testimonial-card strong {
+  color: #93c5fd;
+}
+
+html.dark .testimonial-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.25);
+}
+html.dark .testimonial-card::before {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+html.dark .testimonial-card:hover::before {
+  opacity: 1;
+}
+html.dark .testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.25);
+  border-color: #3b82f6;
+}
+
+
+/* ============================================================ */
+/* BOTÃO ULTRA PREMIUM PLUS */
+/* ============================================================ */
+
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 15px 36px;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  letter-spacing: 0.4px;
+}
+
+/* ==================== PRIMARY BASE ==================== */
+.btn-primary {
+  background: linear-gradient(135deg, #0066ff, #00b4ff);
+  color: #fff;
+  border: none;
+  box-shadow:
+    0 8px 24px rgba(0, 102, 255, 0.25),
+    inset 0 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ANIMAÇÃO DE BRILHO */
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: all 0.7s ease;
+  z-index: 0;
+}
+
+.btn-primary:hover::before {
+  left: 125%;
+}
+
+/* HOVER INTERATIVO */
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 14px 35px rgba(0, 102, 255, 0.3),
+    0 0 12px rgba(0, 180, 255, 0.25);
+  background: linear-gradient(135deg, #0052cc, #0094ff);
+}
+
+/* ACTIVE (PRESS) */
+.btn-primary:active {
+  transform: scale(0.97);
+  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.25);
+}
+
+/* ==================== GLOW PULSANTE ==================== */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 102, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 102, 255, 0);
+  }
+}
+
+.btn-primary.glow {
+  animation: pulseGlow 2.8s infinite ease-in-out;
+}
+
+/* ============================================================ */
+/* RESPONSIVIDADE */
+/* ============================================================ */
+@media (max-width: 768px) {
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 1rem;
+  }
+}
+
+/* ============================================================ */
+/* DARK MODE — PREMIUM */
+/* ============================================================ */
+html.dark .testimonials {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+html.dark .testimonials h2 {
+  color: #e2e8f0;
+}
+html.dark .btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  box-shadow:
+    0 8px 24px rgba(59, 130, 246, 0.25),
+    inset 0 0 0 rgba(255, 255, 255, 0.1);
+}
+html.dark .btn-primary:hover {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  box-shadow:
+    0 14px 35px rgba(59, 130, 246, 0.3),
+    0 0 12px rgba(96, 165, 250, 0.25);
+}
+html.dark .btn-primary:active {
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.25);
+}
+html.dark .btn-primary.glow {
+  animation: pulseGlow 2.8s infinite ease-in-out;
+}

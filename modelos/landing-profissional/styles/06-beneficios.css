@@ -1,0 +1,411 @@
+/* ============================================================ */
+/* SERVIÇOS — DESIGN PREMIUM UI */
+/* ============================================================ */
+
+#services {
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  padding: 100px 8%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* DECORAÇÕES DE FUNDO SUAVES */
+#services::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(0, 119, 255, 0.07), transparent 70%);
+  z-index: 0;
+}
+#services::after {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 87, 255, 0.05), transparent 70%);
+  z-index: 0;
+}
+
+/* CONTAINER */
+#services .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* TÍTULO */
+#services h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0a2a6a;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+#services h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, #0057ff, #00b4ff);
+  border-radius: 4px;
+  margin: 12px auto 0;
+}
+
+/* GRID DE SERVIÇOS */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* CARD DE SERVIÇO */
+.service-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf5;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+  padding: 45px 28px;
+  text-align: left;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* DECORAÇÃO AO PASSAR O MOUSE */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #0057ff, #00b4ff);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* TÍTULO DO SERVIÇO */
+.service-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a2a6a;
+  margin-bottom: 14px;
+}
+
+/* DESCRIÇÃO */
+.service-card p {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* INTERAÇÃO */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 87, 255, 0.15);
+  border-color: #0077ff3d;
+}
+
+/* ============================================================ */
+/* RESPONSIVIDADE */
+/* ============================================================ */
+
+@media (max-width: 1024px) {
+  #services {
+    padding: 80px 6%;
+  }
+
+  .service-card {
+    padding: 36px 24px;
+  }
+
+  #services h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #services {
+    padding: 70px 5%;
+  }
+
+  #services h2 {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .service-card {
+    text-align: center;
+  }
+}
+
+/* ============================================================ */
+/* DARK MODE — PREMIUM */
+/* ============================================================ */
+html.dark #services {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+
+html.dark #services h2 {
+  color: #e2e8f0;
+}
+
+html.dark .service-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .service-card h3 {
+  color: #93c5fd;
+}
+
+html.dark .service-card p {
+  color: #cbd5e1;
+}
+
+html.dark .service-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.2);
+}
+html.dark .service-card::before {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+/* ============================================================ */
+/* CONTATO — DESIGN PREMIUM UI */
+/* ============================================================ */
+#contact {
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  padding: 100px 8%;
+  position: relative;
+  overflow: hidden;
+}
+/* TÍTULO */
+#contact h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0a2a6a;
+  margin-bottom: 60px;
+  position: relative;
+}
+#contact h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, #0057ff, #00b4ff);
+  border-radius: 4px;
+  margin: 12px auto 0;
+}
+/* GRID DE CONTATO */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+/* CARTÃO DE CONTATO */
+.contact-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf5;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+  padding: 45px 28px;
+  text-align: left;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 87, 255, 0.15);
+  border-color: #0077ff3d;
+}
+/* TÍTULO DO CONTATO */
+.contact-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a2a6a;
+  margin-bottom: 14px;
+}
+/* DESCRIÇÃO */
+.contact-card p {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+/* INTERAÇÃO */
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 87, 255, 0.12);
+  border-color: #0077ff3d;
+}
+.contact-mail,
+  .contact-phone {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 8px;
+}
+.contact-mail:hover,
+  .contact-phone:hover {
+  color: #0057ff;
+}
+/* ============================================================ */
+/* DARK MODE — PREMIUM */
+html.dark #contact {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+html.dark #contact h2 {
+  color: #e2e8f0;
+}
+html.dark .contact-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+html.dark .contact-card h3 {
+  color: #93c5fd;
+}
+html.dark .contact-card p {
+  color: #cbd5e1;
+}
+html.dark .contact-mail,
+html.dark .contact-phone {
+  color: #3b82f6;
+}
+/* ============================================================
+/* TRANSIÇÕES */
+.contact-card,
+#contact h2,
+.contact-card:hover {
+  transition: all 0.35s ease;
+}
+/* ============================================================ */
+/* CONTATO — ESTILIZAÇÃO DOS ITENS DE CONTATO */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-item-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.contact-item-value {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  margin-right: var(--space-sm);
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+.contact-item-info {
+  display: flex;
+  flex-direction: column;
+}
+.contact-item-label {
+  font-weight: 700;
+}
+.contact-item-value {
+  color: var(--muted);
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+.contact-form button {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.contact-form button:hover {
+  background: var(--primary-dark);
+}
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  margin-right: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+.contact-item-info {
+  display: flex;
+  flex-direction: column;
+}
+.contact-item-label {
+  font-weight: 700;
+}
+.contact-item-value {
+  color: var(--muted);
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+}

@@ -1,0 +1,44 @@
+.section {
+  padding: var(--space-lg) 0;
+}
+
+.about-grid,
+.hero-grid,
+.services-grid,
+.cases-grid,
+.testimonials-grid,
+.contact-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+.about-grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.hero-grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.services-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.cases-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.testimonials-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+.contact-grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .about-grid,
+  .hero-grid,
+  .services-grid,
+  .cases-grid,
+  .testimonials-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

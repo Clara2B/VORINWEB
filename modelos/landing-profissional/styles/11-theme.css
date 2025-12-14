@@ -1,0 +1,16 @@
+.dark {
+  --bg: #0b1324;
+  --surface: #111927;
+  --text: #e6eefc;
+  --muted: #a3adbf;
+  --card: #162036;
+  --border: #1e2a44;
+}
+.light {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #0b2546;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --border: #e6eefc;
+}

@@ -1,199 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Profissional - Sua empresa marcando território</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-</head>
-<body>
-    <body>
+    <link rel="stylesheet" href="styles/01-variables.css" />
+    <link rel="stylesheet" href="styles/02-base.css" />
+    <link rel="stylesheet" href="styles/03-layout.css" />
+    <link rel="stylesheet" href="styles/04-header.css" />
+    <link rel="stylesheet" href="styles/05-hero.css" />
+    <link rel="stylesheet" href="styles/06-beneficios.css" />
+    <link rel="stylesheet" href="styles/07-produto.css" />
+    <link rel="stylesheet" href="styles/08-depoimentos.css" />
+    <link rel="stylesheet" href="styles/09-cta.css" />
+    <link rel="stylesheet" href="styles/10-footer.css" />
+    <link rel="stylesheet" href="styles/11-theme.css" />
+    <link rel="stylesheet" href="styles/12-responsive.css" />
 
-  <!-- DEMO RIBBON -->
-  <div class="demo-ribbon">DEMO</div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  </head>
+  <body>
+    <!-- DEMO BAR -->
+    <div class="demo-bar">DEMO</div>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <div class="logo-square"></div>
-        <span class="brand-name">EMPRESA DEMO</span>
-      </div>
-
-      <nav class="nav">
-        <button class="nav-toggle" id="navToggle">☰</button>
-        <ul class="nav-list" id="navList">
-          <li><a href="#home">Início</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#cases">Cases</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <h1>Transformando negócios com tecnologia, inovação e estratégia.</h1>
-        <p class="lead">
-          Somos especialistas em soluções digitais que aceleram resultados e posicionam sua empresa no topo.
-        </p>
-
-        <div class="hero-ctas">
-          <a href="#services" class="btn btn-primary">Ver serviços</a>
-          <a href="#contact" class="btn btn-ghost">Fale conosco</a>
-        </div>
-      </div>
-
-      <div class="hero-image"></div>
-    </div>
-  </section>
-
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container about-grid">
-      <div>
-        <h2>Sobre nós</h2>
-        <p class="muted">
-          Somos uma empresa moderna focada em soluções digitais inteligentes. Construímos projetos que unem design,
-          tecnologia e estratégia para impulsionar nossos clientes.
-        </p>
-
-        <ul class="about-list">
-          <li>🏆 +10 anos de experiência</li>
-          <li>🚀 Foco em resultados reais</li>
-          <li>🤝 Atendimento humano e personalizado</li>
-        </ul>
-      </div>
-
-    <div class="about-image">
-      <img src="./img-exemplo.png" alt="Sobre a empresa">
-    </div>
-
-    </div>
-  </section>
-
-
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2>Nossos serviços</h2>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Desenvolvimento Web</h3>
-          <p>Sites profissionais, sistemas personalizados e soluções sob medida.</p>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Marca -->
+        <div class="brand">
+          <div class="logo-square"></div>
+          <div>
+            <span class="brand-name">EMPRESA DEMO</span>
+          </div>
         </div>
 
-        <div class="service-card">
-          <h3>Marketing Digital</h3>
-          <p>Gestão de tráfego, SEO e estratégias que impulsionam vendas.</p>
-        </div>
+        <!-- Navegação -->
+        <nav class="nav">
+          <ul class="nav-list" id="navList">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#cases">Cases</a></li>
+            <li><a href="#contact">Contato</a></li>
+            <!-- Botão de tema (desktop) -->
+          <button id="themeToggle" class="theme-toggle">🌙</button>
+          </ul>
 
-        <div class="service-card">
-          <h3>Automação Empresarial</h3>
-          <p>Bots, integrações e processos otimizados para sua empresa.</p>
-        </div>
+
+
+          <!-- Hambúrguer -->
+          <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
       </div>
-    </div>
-  </section>
+    </header>
 
-
-  <!-- CASES -->
-  <section id="cases" class="section">
-    <div class="container">
-      <h2>Cases de sucesso</h2>
-
-      <div class="cases-grid">
-        <div class="case-card">
-          <h3>Projeto Alpha</h3>
-          <p class="muted">Crescimento de 230% em 6 meses com soluções digitais.</p>
-        </div>
-
-        <div class="case-card">
-          <h3>Startup Nimbus</h3>
-          <p class="muted">Sistema sob medida que triplicou a produtividade.</p>
-        </div>
-
-        <div class="case-card">
-          <h3>Loja Orion</h3>
-          <p class="muted">E-commerce otimizado gerando conversão recorde.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials">
-    <div class="container">
-      <h2>O que dizem nossos clientes</h2>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p>“Profissionais incríveis. Transformaram nosso negócio.”</p>
-          <strong>— Cliente Satisfeito</strong>
-        </div>
-
-        <div class="testimonial-card">
-          <p>“Resultado acima do esperado. Recomendo sem medo.”</p>
-          <strong>— CEO X Company</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container contact-grid">
-      <div>
-        <h2>Entre em contato</h2>
-        <p class="muted">Pronto para levar sua empresa ao próximo nível?</p>
-        <p class="contact-mail">contato@seudominio.com</p>
-      </div>
-
-      <div class="contact-cta">
-        <a class="btn btn-primary" href="mailto:contato@seudominio.com">Enviar mensagem</a>
-      </div>
-    </div>
-  </section>
-
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-left">
-      <div class="logo-square small" aria-hidden="true"></div>
-      <div>
-        <h4 class="footer-brand">SUA LOJA AQUI</h4>
-        <p class="footer-mini muted">Landing page demonstrativa</p>
-      </div>
-    </div>
-
-    <div class="footer-right">
-      <a href="#home">Home</a>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">Início</a>
+      <a href="#about">Sobre</a>
       <a href="#services">Serviços</a>
+      <a href="#cases">Cases</a>
       <a href="#contact">Contato</a>
+
+      <!-- Botão de tema (mobile) -->
+      <button id="themeToggleMobile" class="theme-toggle-mobile">🌙</button>
     </div>
-  </div>
 
-  <p class="footer-copy muted small">© 2025 — Demo criada apenas para visualização.</p>
-</footer>
-</body>
+    <!-- BACKDROP -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Transformando negócios com tecnologia, inovação e estratégia.</h1>
+          <p class="lead">
+            Somos especialistas em soluções digitais que aceleram resultados e
+            posicionam sua empresa no topo.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#services" class="btn btn-primary">Ver serviços</a>
+            <a href="#contact" class="btn btn-ghost">Fale conosco</a>
+          </div>
+        </div>
+
+        <div class="hero-image"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div>
+          <h2>Sobre nós</h2>
+          <p class="muted">
+            Somos uma empresa moderna focada em soluções digitais inteligentes.
+            Construímos projetos que unem design, tecnologia e estratégia para
+            impulsionar nossos clientes.
+          </p>
+
+          <ul class="about-list">
+            <li>🏆 +10 anos de experiência</li>
+            <li>🚀 Foco em resultados reais</li>
+            <li>🤝 Atendimento humano e personalizado</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Nossos serviços</h2>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Desenvolvimento Web</h3>
+            <p>
+              Sites profissionais, sistemas personalizados e soluções sob
+              medida.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Marketing Digital</h3>
+            <p>Gestão de tráfego, SEO e estratégias que impulsionam vendas.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Automação Empresarial</h3>
+            <p>Bots, integrações e processos otimizados para sua empresa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section id="cases" class="section">
+      <div class="container">
+        <h2>Cases de sucesso</h2>
+
+        <div class="cases-grid">
+          <div class="case-card">
+            <h3>Projeto Alpha</h3>
+            <p class="muted">
+              Crescimento de 230% em 6 meses com soluções digitais.
+            </p>
+          </div>
+
+          <div class="case-card">
+            <h3>Startup Nimbus</h3>
+            <p class="muted">
+              Sistema sob medida que triplicou a produtividade.
+            </p>
+          </div>
+
+          <div class="case-card">
+            <h3>Loja Orion</h3>
+            <p class="muted">E-commerce otimizado gerando conversão recorde.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials">
+      <div class="container">
+        <h2>O que dizem nossos clientes</h2>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p>“Profissionais incríveis. Transformaram nosso negócio.”</p>
+            <strong>— Cliente Satisfeito</strong>
+          </div>
+
+          <div class="testimonial-card">
+            <p>“Resultado acima do esperado. Recomendo sem medo.”</p>
+            <strong>— CEO X Company</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <div>
+          <h2>Entre em contato</h2>
+          <p class="muted">Pronto para levar sua empresa ao próximo nível?</p>
+          <p class="contact-mail">contato@seudominio.com</p>
+        </div>
+
+        <div class="contact-cta">
+          <a class="btn btn-primary" href="mailto:contato@seudominio.com"
+            >Enviar mensagem</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="logo-square small" aria-hidden="true"></div>
+          <div>
+            <h4 class="footer-brand">SUA LOJA AQUI</h4>
+            <p class="footer-mini muted">Landing page demonstrativa</p>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <a href="#home">Home</a>
+          <a href="#services">Serviços</a>
+          <a href="#contact">Contato</a>
+        </div>
+      </div>
+
+      <p class="footer-copy muted small">
+        © 2025 — Demo criada apenas para visualização.
+      </p>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/reveal.js"></script>
+  </body>
 </html>
-
-<script>
-    const navToggle = document.getElementById('navToggle');
-    const navList = document.getElementById('navList');
-
-    navToggle.addEventListener('click', function() {
-        navList.classList.toggle('open');
-    });
-</script>

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <body>
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+
   <div class="whatsapp-demo">
   <div class="demo-header">
     <div class="avatar">
@@ -40,32 +43,50 @@
 </body>
 
 <script>
-const chat = document.getElementById("demoChat");
-const buttons = document.querySelectorAll(".demo-btn");
+  const root = document.documentElement;
+  const themeToggle = document.getElementById("themeToggle");
 
-function addMessage(text, sender) {
-  const msg = document.createElement("div");
-  msg.classList.add("msg", sender);
-  msg.textContent = text;
+  // Define tema salvo ou preferência do sistema
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (saved) root.classList.toggle("dark", saved === "dark");
+  else if (prefersDark) root.classList.add("dark");
 
-  chat.appendChild(msg);
-  chat.scrollTop = chat.scrollHeight;
-}
+  function toggleTheme() {
+    root.classList.toggle("dark");
+    const isDark = root.classList.contains("dark");
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }
 
-buttons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const userMsg = btn.dataset.msg;
-    addMessage(userMsg, "user");
+  themeToggle.addEventListener("click", toggleTheme);
 
-    setTimeout(() => {
-      if (userMsg.includes("serviços")) {
-        addMessage("Oferecemos sites profissionais, bots de WhatsApp e consultoria digital 🔧✨", "bot");
-      } else if (userMsg.includes("valores")) {
-        addMessage("Nossos planos variam de acordo com o projeto. Quer receber uma proposta personalizada?", "bot");
-      } else {
-        addMessage("Claro! Já te conecto com um atendente humano 👤❤️", "bot");
-      }
-    }, 700);
+  // CHAT
+  const chat = document.getElementById("demoChat");
+  const buttons = document.querySelectorAll(".demo-btn");
+
+  function addMessage(text, sender) {
+    const msg = document.createElement("div");
+    msg.classList.add("msg", sender);
+    msg.textContent = text;
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const userMsg = btn.dataset.msg;
+      addMessage(userMsg, "user");
+
+      setTimeout(() => {
+        if (userMsg.includes("serviços")) {
+          addMessage("Oferecemos sites profissionais, bots de WhatsApp e consultoria digital 🔧✨", "bot");
+        } else if (userMsg.includes("valores")) {
+          addMessage("Nossos planos variam conforme o projeto. Quer uma proposta personalizada?", "bot");
+        } else {
+          addMessage("Claro! Já te conecto com um atendente humano 👤❤️", "bot");
+        }
+      }, 900);
+    });
   });
-});
 </script>
