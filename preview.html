@@ -254,91 +254,80 @@
     </button>
 
     <script>
-      /* ============================================================
-     CONFIGURAÇÕES INICIAIS
-  ============================================================ */
-      const params = new URLSearchParams(window.location.search);
-      const modelo = params.get("modelo");
-      const previewArea = document.getElementById("preview-area");
-      const modelName = document.getElementById("modelName");
-      const loader = document.getElementById("loader");
-      const repoName = "VORINWEB";
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const modelo = params.get("modelo");
+        const previewArea = document.getElementById("preview-area");
+        const modelName = document.getElementById("modelName");
+        const loader = document.getElementById("loader");
 
-      // Detecta se está no GitHub Pages e adiciona o repositório corretamente
-      const basePath = window.location.hostname.includes("github.io")
-        ? `/${repoName}`
-        : "";
+        // Caminho base para ambientes locais e GitHub Pages
+        const repoName = "VORINWEB";
+        const isGithub = window.location.hostname.includes("github.io");
+        const basePath = isGithub ? `/${repoName}` : "";
 
-      /* ============================================================
-     FUNÇÕES DE PREVIEW
-  ============================================================ */
-      function showError() {
-        if (loader) loader.style.display = "none";
-        previewArea.innerHTML = `
+        // Exibe erro
+        function showError() {
+          if (loader) loader.style.display = "none";
+          previewArea.innerHTML = `
       <div class="error-box">
         <h2>Modelo não encontrado 😕</h2>
         <p>Volte e escolha um modelo novamente.</p>
-      </div>`;
-        modelName.textContent = "Modelo inválido";
-      }
+      </div>
+    `;
+          modelName.textContent = "Erro ao carregar";
+        }
 
-      function loadModel(name) {
-        if (!name) return showError();
+        // Carrega o modelo no iframe
+        function loadModel() {
+          if (!modelo) return showError();
 
-        const nomeFormatado = name
-          .replaceAll("-", " ")
-          .replace(/\b\w/g, (c) => c.toUpperCase());
-        modelName.textContent = nomeFormatado;
+          const nomeFormatado = modelo
+            .replaceAll("-", " ")
+            .replace(/\b\w/g, (c) => c.toUpperCase());
 
-        const iframe = document.createElement("iframe");
-        iframe.classList.add("hidden");
+          modelName.textContent = nomeFormatado;
 
-        // Caminho dinâmico compatível com GitHub Pages e localhost
-        const modelPath = `${basePath}/modelos/${name}/index.html`;
-        console.log("📂 Carregando modelo de:", modelPath);
+          const iframe = document.createElement("iframe");
+          iframe.classList.add("hidden");
 
-        iframe.src = modelPath;
-        previewArea.appendChild(iframe);
+          // 🔧 Caminho compatível com GitHub Pages e local
+          iframe.src = `${basePath}/modelos/${modelo}/index.html`;
 
-        iframe.onload = () => {
-          if (loader) loader.style.display = "none";
-          iframe.classList.remove("hidden");
-          console.log("✅ Modelo carregado com sucesso");
-        };
+          iframe.onload = () => {
+            if (loader) loader.style.display = "none";
+            iframe.classList.remove("hidden");
+          };
 
-        iframe.onerror = () => {
-          console.error("❌ Erro ao carregar modelo:", modelPath);
-          showError();
-        };
-      }
+          iframe.onerror = () => showError();
 
-      /* ============================================================
-     BOTÃO DE WHATSAPP
-  ============================================================ */
-      function setupWhatsAppButton() {
-        const btn = document.getElementById("chooseBtn");
-        if (!btn) return;
+          previewArea.innerHTML = ""; // limpa antes
+          previewArea.appendChild(iframe);
+        }
 
-        btn.addEventListener("click", () => {
-          const numero = "5511934900204";
-          const nomeFormatado =
-            modelo
-              ?.replaceAll("-", " ")
-              .replace(/\b\w/g, (c) => c.toUpperCase()) ||
-            "modelo desconhecido";
-          const msg = encodeURIComponent(
-            `Olá! Gostaria de solicitar o modelo: *${nomeFormatado}*`
-          );
-          window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
-        });
-      }
+        // Botão WhatsApp
+        function setupWhatsAppButton() {
+          const btn = document.getElementById("chooseBtn");
+          if (!btn) return;
 
-      /* ============================================================
-     INICIALIZAÇÃO
-  ============================================================ */
-      document.addEventListener("DOMContentLoaded", () => {
+          btn.addEventListener("click", () => {
+            const numero = "5511934900204";
+            const nomeFormatado = modelo
+              ? modelo
+                  .replaceAll("-", " ")
+                  .replace(/\b\w/g, (c) => c.toUpperCase())
+              : "modelo desconhecido";
+
+            const msg = encodeURIComponent(
+              `Olá! Gostaria de solicitar o modelo: *${nomeFormatado}*`
+            );
+            window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+          });
+        }
+
+        // Inicialização
         if (!modelo) showError();
-        else loadModel(modelo);
+        else loadModel();
         setupWhatsAppButton();
       });
     </script>
