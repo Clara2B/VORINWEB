@@ -130,6 +130,7 @@ html.dark .logo-square {
 .nav {
   display: flex;
   align-items: center;
+  z-index: 1000;
 }
 .nav-list {
   display: flex;
@@ -201,7 +202,7 @@ html.dark .nav-toggle span {
   flex-direction: column;
   gap: 25px;
   transition: right 0.35s ease;
-  z-index: 999;
+  z-index: 11000;
   box-shadow: -4px 0 25px #00000030;
 }
 .mobile-menu a:hover {
