@@ -261,24 +261,31 @@
         const modelName = document.getElementById("modelName");
         const loader = document.getElementById("loader");
 
-        // Caminho base para ambientes locais e GitHub Pages
-        const repoName = "VORINWEB";
+        // ==========================================
+        // 🔧 Caminho base dinâmico (funciona no GitHub Pages e local)
+        // ==========================================
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        const repoName = pathParts[0] || "";
         const isGithub = window.location.hostname.includes("github.io");
-        const basePath = isGithub ? `/${repoName}` : "";
+        const basePath = isGithub && repoName ? `/${repoName}` : "";
 
-        // Exibe erro
+        // ==========================================
+        // 🚨 Exibe mensagem de erro
+        // ==========================================
         function showError() {
           if (loader) loader.style.display = "none";
           previewArea.innerHTML = `
-      <div class="error-box">
-        <h2>Modelo não encontrado 😕</h2>
-        <p>Volte e escolha um modelo novamente.</p>
-      </div>
-    `;
+        <div class="error-box">
+          <h2>Modelo não encontrado 😕</h2>
+          <p>Volte e escolha um modelo novamente.</p>
+        </div>
+      `;
           modelName.textContent = "Erro ao carregar";
         }
 
-        // Carrega o modelo no iframe
+        // ==========================================
+        // 🖼️ Carrega o modelo dentro do iframe
+        // ==========================================
         function loadModel() {
           if (!modelo) return showError();
 
@@ -291,7 +298,7 @@
           const iframe = document.createElement("iframe");
           iframe.classList.add("hidden");
 
-          // 🔧 Caminho compatível com GitHub Pages e local
+          // Caminho absoluto correto no GitHub Pages
           iframe.src = `${basePath}/modelos/${modelo}/index.html`;
 
           iframe.onload = () => {
@@ -305,7 +312,9 @@
           previewArea.appendChild(iframe);
         }
 
-        // Botão WhatsApp
+        // ==========================================
+        // 💬 Botão WhatsApp
+        // ==========================================
         function setupWhatsAppButton() {
           const btn = document.getElementById("chooseBtn");
           if (!btn) return;
@@ -321,13 +330,17 @@
             const msg = encodeURIComponent(
               `Olá! Gostaria de solicitar o modelo: *${nomeFormatado}*`
             );
+
             window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
           });
         }
 
-        // Inicialização
+        // ==========================================
+        // 🚀 Inicialização
+        // ==========================================
         if (!modelo) showError();
         else loadModel();
+
         setupWhatsAppButton();
       });
     </script>
