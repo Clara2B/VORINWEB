@@ -1,41 +1,127 @@
+/* -----------------------
+   DEMO BAR
+------------------------ */
+.demo-ribbon {
+  background: var(--accent, #0077ff);
+  color: #fff;
+  text-align: center;
+  padding: 6px 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+.demo-bar {
+  width: 100%;
+  background: #1f1f1f;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  border-bottom: 2px solid #222;
+  user-select: none;
+  letter-spacing: 0.8px;
+}
+
 /* ========================================================================== */
 /* HEADER BASE */
 /* ========================================================================== */
-
 .site-header {
-  background: var(--surface, #fff);
-  border-bottom: 1px solid var(--border, #eee);
-  padding: 16px 0;
   position: sticky;
-  top: 0;
-  z-index: 100;
+  top: 37px; 
+  width: 100%;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 3px 12px var(--shadow);
+  z-index: 1000;
 }
+
+/* Quando o usuário rola a página — cabeçalho destacado */
+.site-header.scrolled {
+  box-shadow: 0 8px 24px var(--shadow-strong);
+}
+
+/* ========================================================================== */
+/* HEADER INNER STRUCTURE */
+/* ========================================================================== */
 .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 14px 28px;
+  gap: 20px;
+  box-sizing: border-box;
 }
+
+/* ========================================================================== */
+/* BRAND / LOGO */
+/* ========================================================================== */
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
+  color: var(--text);
 }
 .logo-square {
   width: 36px;
   height: 36px;
-  background: #e6e6e6;
-  border-radius: 6px;
+  background: var(--logo-bg, var(--surface-soft)); 
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
 }
 .brand-name {
   font-weight: 700;
   font-size: 1.05rem;
+  line-height: 1.2;
+  color: var(--text);
+  transition: color var(--transition);
 }
 .brand-sub {
   display: block;
   font-size: 0.78rem;
-  color: var(--muted, #666);
+  color: var(--text-soft);
+  line-height: 1.2;
+  transition: color var(--transition);
 }
+
+/* ========================================================================== */
+/* DARK MODE ADAPTAÇÕES */
+/* ========================================================================== */
+html.dark .logo-square {
+  background: var(--logo-bg-dark, #1e2833);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* ========================================================================== */
+/* RESPONSIVIDADE */
+/* ========================================================================== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 12px 18px;
+    gap: 12px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-sub {
+    font-size: 0.72rem;
+  }
+}
+
+
 
 /* ========================================================================== */
 /* DESKTOP NAV */

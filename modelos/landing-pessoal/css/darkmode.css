@@ -5,14 +5,14 @@
 :root {
   --bg: #ffffff;
   --surface: #ffffff;
-  --surface-soft: #f5f7fa;
+  --surface-soft: #bdc5ce;
   --text: #0a1a2a;
-  --text-soft: #3a4958;
+  --text-soft: #364452;
 
   --primary: #0d47a1;
   --primary-hover: #093270;
 
-  --border: #e5e5e5;
+  --border: #b3b5c2;
   --muted: #7a8a99;
 
   --card: #ffffff;
